@@ -1,0 +1,30 @@
+Command line:
+   decade_counter_isim_beh.exe
+     -simmode  gui
+     -simrunnum  0
+     -socket  51102
+
+Tue Sep 13 11:19:04 2022
+
+
+ Elaboration Time: 0.203125 sec
+
+ Current Memory Usage: 5805.11 Meg
+
+ Total Signals          : 15
+ Total Nets             : 19
+ Total Signal Drivers   : 6
+ Total Blocks           : 2
+ Total Primitive Blocks : 2
+ Total Processes        : 8
+ Total Traceable Variables  : 19
+ Total Scalar Nets and Variables : 103
+Total Line Count : 17
+Total Line Count : 17
+
+ Total Simulation Time: 0.203125 sec
+
+ Current Memory Usage: 5333.25 Meg
+
+Tue Sep 13 11:20:02 2022
+

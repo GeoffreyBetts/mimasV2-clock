@@ -1,0 +1,34 @@
+xst -intstyle ise -ifn "E:/Xilinx/projects/Clock/decade_counter.xst" -ofn "E:/Xilinx/projects/Clock/decade_counter.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -i -p xc6slx9-csg324-2 decade_counter.ngc decade_counter.ngd  
+map -intstyle ise -p xc6slx9-csg324-2 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o decade_counter_map.ncd decade_counter.ngd decade_counter.pcf 
+par -w -intstyle ise -ol high -mt off decade_counter_map.ncd decade_counter.ncd decade_counter.pcf 
+trce -intstyle ise -v 3 -s 2 -n 3 -fastpaths -xml decade_counter.twx decade_counter.ncd -o decade_counter.twr decade_counter.pcf 
+xst -intstyle ise -ifn "E:/Xilinx/projects/Clock/decade_counter.xst" -ofn "E:/Xilinx/projects/Clock/decade_counter.syr" 
+xst -intstyle ise -ifn "E:/Xilinx/projects/Clock/decade_counter.xst" -ofn "E:/Xilinx/projects/Clock/decade_counter.syr" 
+xst -intstyle ise -ifn "E:/Xilinx/projects/Clock/decade_counter.xst" -ofn "E:/Xilinx/projects/Clock/decade_counter.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -i -p xc6slx9-csg324-2 decade_counter.ngc decade_counter.ngd  
+map -intstyle ise -p xc6slx9-csg324-2 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o decade_counter_map.ncd decade_counter.ngd decade_counter.pcf 
+par -w -intstyle ise -ol high -mt off decade_counter_map.ncd decade_counter.ncd decade_counter.pcf 
+trce -intstyle ise -v 3 -s 2 -n 3 -fastpaths -xml decade_counter.twx decade_counter.ncd -o decade_counter.twr decade_counter.pcf 
+xst -intstyle ise -ifn "E:/Xilinx/projects/Clock/decade_counter.xst" -ofn "E:/Xilinx/projects/Clock/decade_counter.syr" 
+xst -intstyle ise -ifn "E:/Xilinx/projects/Clock/decade_counter.xst" -ofn "E:/Xilinx/projects/Clock/decade_counter.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -i -p xc6slx9-csg324-2 decade_counter.ngc decade_counter.ngd  
+map -intstyle ise -p xc6slx9-csg324-2 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o decade_counter_map.ncd decade_counter.ngd decade_counter.pcf 
+par -w -intstyle ise -ol high -mt off decade_counter_map.ncd decade_counter.ncd decade_counter.pcf 
+trce -intstyle ise -v 3 -s 2 -n 3 -fastpaths -xml decade_counter.twx decade_counter.ncd -o decade_counter.twr decade_counter.pcf 
+xst -intstyle ise -ifn "E:/Xilinx/projects/Clock/decade_counter.xst" -ofn "E:/Xilinx/projects/Clock/decade_counter.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -i -p xc6slx9-csg324-2 decade_counter.ngc decade_counter.ngd  
+map -intstyle ise -p xc6slx9-csg324-2 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o decade_counter_map.ncd decade_counter.ngd decade_counter.pcf 
+par -w -intstyle ise -ol high -mt off decade_counter_map.ncd decade_counter.ncd decade_counter.pcf 
+trce -intstyle ise -v 3 -s 2 -n 3 -fastpaths -xml decade_counter.twx decade_counter.ncd -o decade_counter.twr decade_counter.pcf 
+xst -intstyle ise -ifn "E:/Xilinx/projects/Clock/decade_counter.xst" -ofn "E:/Xilinx/projects/Clock/decade_counter.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -i -p xc6slx9-csg324-2 decade_counter.ngc decade_counter.ngd  
+map -intstyle ise -p xc6slx9-csg324-2 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o decade_counter_map.ncd decade_counter.ngd decade_counter.pcf 
+par -w -intstyle ise -ol high -mt off decade_counter_map.ncd decade_counter.ncd decade_counter.pcf 
+trce -intstyle ise -v 3 -s 2 -n 3 -fastpaths -xml decade_counter.twx decade_counter.ncd -o decade_counter.twr decade_counter.pcf 
+xst -intstyle ise -ifn "E:/Xilinx/projects/Clock/decade_counter.xst" -ofn "E:/Xilinx/projects/Clock/decade_counter.syr" 
+xst -intstyle ise -ifn "E:/Xilinx/projects/Clock/decade_counter.xst" -ofn "E:/Xilinx/projects/Clock/decade_counter.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -i -p xc6slx9-csg324-2 decade_counter.ngc decade_counter.ngd  
+map -intstyle ise -p xc6slx9-csg324-2 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o decade_counter_map.ncd decade_counter.ngd decade_counter.pcf 
+par -w -intstyle ise -ol high -mt off decade_counter_map.ncd decade_counter.ncd decade_counter.pcf 
+trce -intstyle ise -v 3 -s 2 -n 3 -fastpaths -xml decade_counter.twx decade_counter.ncd -o decade_counter.twr decade_counter.pcf 

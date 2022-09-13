@@ -1,0 +1,461 @@
+Release 14.7 - xst P.20131013 (nt64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+--> Parameter TMPDIR set to xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.21 secs
+ 
+--> Parameter xsthdpdir set to xst
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.22 secs
+ 
+--> Reading design: count_to_60.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Parsing
+  3) HDL Elaboration
+  4) HDL Synthesis
+       4.1) HDL Synthesis Report
+  5) Advanced HDL Synthesis
+       5.1) Advanced HDL Synthesis Report
+  6) Low Level Synthesis
+  7) Partition Report
+  8) Design Summary
+       8.1) Primitive and Black Box Usage
+       8.2) Device utilization summary
+       8.3) Partition Resource Summary
+       8.4) Timing Report
+            8.4.1) Clock Information
+            8.4.2) Asynchronous Control Signals Information
+            8.4.3) Timing Summary
+            8.4.4) Timing Details
+            8.4.5) Cross Clock Domains Report
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "count_to_60.prj"
+Ignore Synthesis Constraint File   : NO
+
+---- Target Parameters
+Output File Name                   : "count_to_60"
+Output Format                      : NGC
+Target Device                      : xc6slx9-2-csg324
+
+---- Source Options
+Top Module Name                    : count_to_60
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+Safe Implementation                : No
+FSM Style                          : LUT
+RAM Extraction                     : Yes
+RAM Style                          : Auto
+ROM Extraction                     : Yes
+Shift Register Extraction          : YES
+ROM Style                          : Auto
+Resource Sharing                   : YES
+Asynchronous To Synchronous        : NO
+Shift Register Minimum Size        : 2
+Use DSP Block                      : Auto
+Automatic Register Balancing       : No
+
+---- Target Options
+LUT Combining                      : Auto
+Reduce Control Sets                : Auto
+Add IO Buffers                     : YES
+Global Maximum Fanout              : 100000
+Add Generic Clock Buffer(BUFG)     : 16
+Register Duplication               : YES
+Optimize Instantiated Primitives   : NO
+Use Clock Enable                   : Auto
+Use Synchronous Set                : Auto
+Use Synchronous Reset              : Auto
+Pack IO Registers into IOBs        : Auto
+Equivalent register Removal        : YES
+
+---- General Options
+Optimization Goal                  : Speed
+Optimization Effort                : 1
+Power Reduction                    : NO
+Keep Hierarchy                     : No
+Netlist Hierarchy                  : As_Optimized
+RTL Output                         : Yes
+Global Optimization                : AllClockNets
+Read Cores                         : YES
+Write Timing Constraints           : NO
+Cross Clock Analysis               : NO
+Hierarchy Separator                : /
+Bus Delimiter                      : <>
+Case Specifier                     : Maintain
+Slice Utilization Ratio            : 100
+BRAM Utilization Ratio             : 100
+DSP48 Utilization Ratio            : 100
+Auto BRAM Packing                  : NO
+Slice Utilization Ratio Delta      : 5
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Parsing                                  *
+=========================================================================
+Analyzing Verilog file "E:\Xilinx\projects\Clock\decade_counter.v" into library work
+Parsing module <decade_counter>.
+Analyzing Verilog file "E:\Xilinx\projects\Clock\count_to_60.v" into library work
+Parsing module <count_to_60>.
+
+=========================================================================
+*                            HDL Elaboration                            *
+=========================================================================
+WARNING:HDLCompiler:1016 - "E:\Xilinx\projects\Clock\count_to_60.v" Line 34: Port out is not connected to this instance
+
+Elaborating module <count_to_60>.
+
+Elaborating module <decade_counter>.
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Synthesizing Unit <count_to_60>.
+    Related source file is "E:\Xilinx\projects\Clock\count_to_60.v".
+INFO:Xst:3210 - "E:\Xilinx\projects\Clock\count_to_60.v" line 34: Output port <out> of the instance <second_digit> is unconnected or connected to loadless signal.
+    Summary:
+	no macro.
+Unit <count_to_60> synthesized.
+
+Synthesizing Unit <decade_counter>.
+    Related source file is "E:\Xilinx\projects\Clock\decade_counter.v".
+    Found 4-bit register for signal <q>.
+    Found 1-bit register for signal <out>.
+    Found 4-bit adder for signal <q[3]_GND_2_o_add_3_OUT> created at line 34.
+    Summary:
+	inferred   1 Adder/Subtractor(s).
+	inferred   5 D-type flip-flop(s).
+Unit <decade_counter> synthesized.
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# Adders/Subtractors                                   : 2
+ 4-bit adder                                           : 2
+# Registers                                            : 4
+ 1-bit register                                        : 2
+ 4-bit register                                        : 2
+
+=========================================================================
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+
+Synthesizing (advanced) Unit <decade_counter>.
+The following registers are absorbed into counter <q>: 1 register on signal <q>.
+Unit <decade_counter> synthesized (advanced).
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# Counters                                             : 2
+ 4-bit up counter                                      : 2
+# Registers                                            : 2
+ Flip-Flops                                            : 2
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+WARNING:Xst:2677 - Node <second_digit/out> of sequential type is unconnected in block <count_to_60>.
+
+Optimizing unit <count_to_60> ...
+
+Mapping all equations...
+Building and optimizing final netlist ...
+Found area constraint ratio of 100 (+ 5) on block count_to_60, actual ratio is 0.
+
+Final Macro Processing ...
+
+=========================================================================
+Final Register Report
+
+Macro Statistics
+# Registers                                            : 9
+ Flip-Flops                                            : 9
+
+=========================================================================
+
+=========================================================================
+*                           Partition Report                            *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Design Summary                             *
+=========================================================================
+
+Top Level Output File Name         : count_to_60.ngc
+
+Primitive and Black Box Usage:
+------------------------------
+# BELS                             : 13
+#      LUT2                        : 3
+#      LUT4                        : 3
+#      LUT5                        : 5
+#      LUT6                        : 2
+# FlipFlops/Latches                : 9
+#      FD                          : 9
+# Clock Buffers                    : 1
+#      BUFGP                       : 1
+# IO Buffers                       : 10
+#      IBUF                        : 1
+#      OBUF                        : 9
+
+Device utilization summary:
+---------------------------
+
+Selected Device : 6slx9csg324-2 
+
+
+Slice Logic Utilization: 
+ Number of Slice Registers:               9  out of  11440     0%  
+ Number of Slice LUTs:                   13  out of   5720     0%  
+    Number used as Logic:                13  out of   5720     0%  
+
+Slice Logic Distribution: 
+ Number of LUT Flip Flop pairs used:     13
+   Number with an unused Flip Flop:       4  out of     13    30%  
+   Number with an unused LUT:             0  out of     13     0%  
+   Number of fully used LUT-FF pairs:     9  out of     13    69%  
+   Number of unique control sets:         2
+
+IO Utilization: 
+ Number of IOs:                          11
+ Number of bonded IOBs:                  11  out of    200     5%  
+
+Specific Feature Utilization:
+ Number of BUFG/BUFGCTRLs:                1  out of     16     6%  
+
+---------------------------
+Partition Resource Summary:
+---------------------------
+
+  No Partitions were found in this design.
+
+---------------------------
+
+
+=========================================================================
+Timing Report
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+-----------------------------------------+--------------------------+-------+
+Clock Signal                             | Clock buffer(FF name)    | Load  |
+-----------------------------------------+--------------------------+-------+
+carry_reset_OR_5_o(carry_reset_OR_5_o1:O)| NONE(*)(second_digit/q_0)| 4     |
+clk                                      | BUFGP                    | 5     |
+-----------------------------------------+--------------------------+-------+
+(*) This 1 clock signal(s) are generated by combinatorial logic,
+and XST is not able to identify which are the primary clock signals.
+Please use the CLOCK_SIGNAL constraint to specify the clock signal(s) generated by combinatorial logic.
+INFO:Xst:2169 - HDL ADVISOR - Some clock signals were not automatically buffered by XST with BUFG/BUFR resources. Please use the buffer_type constraint in order to insert these buffers to the clock signals to help prevent skew problems.
+
+Asynchronous Control Signals Information:
+----------------------------------------
+No asynchronous control signals found in this design
+
+Timing Summary:
+---------------
+Speed Grade: -2
+
+   Minimum period: 2.005ns (Maximum Frequency: 498.753MHz)
+   Minimum input arrival time before clock: 3.094ns
+   Maximum output required time after clock: 6.786ns
+   Maximum combinational path delay: No path found
+
+Timing Details:
+---------------
+All values displayed in nanoseconds (ns)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'carry_reset_OR_5_o'
+  Clock period: 1.970ns (frequency: 507.614MHz)
+  Total number of paths / destination ports: 13 / 4
+-------------------------------------------------------------------------
+Delay:               1.970ns (Levels of Logic = 1)
+  Source:            second_digit/q_2 (FF)
+  Destination:       second_digit/q_1 (FF)
+  Source Clock:      carry_reset_OR_5_o rising
+  Destination Clock: carry_reset_OR_5_o rising
+
+  Data Path: second_digit/q_2 to second_digit/q_1
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FD:C->Q               5   0.525   1.117  second_digit/q_2 (second_digit/q_2)
+     LUT6:I2->O            1   0.254   0.000  second_digit/q_1_rstpot (second_digit/q_1_rstpot)
+     FD:D                      0.074          second_digit/q_1
+    ----------------------------------------
+    Total                      1.970ns (0.853ns logic, 1.117ns route)
+                                       (43.3% logic, 56.7% route)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'clk'
+  Clock period: 2.005ns (frequency: 498.753MHz)
+  Total number of paths / destination ports: 16 / 5
+-------------------------------------------------------------------------
+Delay:               2.005ns (Levels of Logic = 1)
+  Source:            first_digit/q_3 (FF)
+  Destination:       first_digit/q_1 (FF)
+  Source Clock:      clk rising
+  Destination Clock: clk rising
+
+  Data Path: first_digit/q_3 to first_digit/q_1
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FD:C->Q               6   0.525   1.152  first_digit/q_3 (first_digit/q_3)
+     LUT5:I1->O            1   0.254   0.000  first_digit/out_rstpot (first_digit/out_rstpot)
+     FD:D                      0.074          first_digit/out
+    ----------------------------------------
+    Total                      2.005ns (0.853ns logic, 1.152ns route)
+                                       (42.5% logic, 57.5% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'carry_reset_OR_5_o'
+  Total number of paths / destination ports: 4 / 4
+-------------------------------------------------------------------------
+Offset:              3.094ns (Levels of Logic = 2)
+  Source:            reset (PAD)
+  Destination:       second_digit/q_1 (FF)
+  Destination Clock: carry_reset_OR_5_o rising
+
+  Data Path: reset to second_digit/q_1
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O            10   1.328   1.438  reset_IBUF (reset_IBUF)
+     LUT5:I0->O            1   0.254   0.000  second_digit/q_3_rstpot (second_digit/q_3_rstpot)
+     FD:D                      0.074          second_digit/q_3
+    ----------------------------------------
+    Total                      3.094ns (1.656ns logic, 1.438ns route)
+                                       (53.5% logic, 46.5% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'clk'
+  Total number of paths / destination ports: 5 / 5
+-------------------------------------------------------------------------
+Offset:              3.094ns (Levels of Logic = 2)
+  Source:            reset (PAD)
+  Destination:       first_digit/q_1 (FF)
+  Destination Clock: clk rising
+
+  Data Path: reset to first_digit/q_1
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O            10   1.328   1.438  reset_IBUF (reset_IBUF)
+     LUT5:I0->O            1   0.254   0.000  first_digit/q_1_rstpot (first_digit/q_1_rstpot)
+     FD:D                      0.074          first_digit/q_1
+    ----------------------------------------
+    Total                      3.094ns (1.656ns logic, 1.438ns route)
+                                       (53.5% logic, 46.5% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'carry_reset_OR_5_o'
+  Total number of paths / destination ports: 8 / 5
+-------------------------------------------------------------------------
+Offset:              6.253ns (Levels of Logic = 3)
+  Source:            second_digit/q_3 (FF)
+  Destination:       out (PAD)
+  Source Clock:      carry_reset_OR_5_o rising
+
+  Data Path: second_digit/q_3 to out
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FD:C->Q               5   0.525   0.841  second_digit/q_3 (second_digit/q_3)
+     LUT5:I4->O            1   0.254   0.790  out11 (out_bdd0)
+     LUT4:I2->O            1   0.250   0.681  out1 (out_OBUF)
+     OBUF:I->O                 2.912          out_OBUF (out)
+    ----------------------------------------
+    Total                      6.253ns (3.941ns logic, 2.312ns route)
+                                       (63.0% logic, 37.0% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'clk'
+  Total number of paths / destination ports: 8 / 5
+-------------------------------------------------------------------------
+Offset:              6.786ns (Levels of Logic = 3)
+  Source:            first_digit/q_0 (FF)
+  Destination:       out (PAD)
+  Source Clock:      clk rising
+
+  Data Path: first_digit/q_0 to out
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FD:C->Q               8   0.525   1.374  first_digit/q_0 (first_digit/q_0)
+     LUT5:I0->O            1   0.254   0.790  out11 (out_bdd0)
+     LUT4:I2->O            1   0.250   0.681  out1 (out_OBUF)
+     OBUF:I->O                 2.912          out_OBUF (out)
+    ----------------------------------------
+    Total                      6.786ns (3.941ns logic, 2.845ns route)
+                                       (58.1% logic, 41.9% route)
+
+=========================================================================
+
+Cross Clock Domains Report:
+--------------------------
+
+Clock to Setup on destination clock carry_reset_OR_5_o
+------------------+---------+---------+---------+---------+
+                  | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock      |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+------------------+---------+---------+---------+---------+
+carry_reset_OR_5_o|    1.970|         |         |         |
+clk               |    3.440|         |         |         |
+------------------+---------+---------+---------+---------+
+
+Clock to Setup on destination clock clk
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+clk            |    2.005|         |         |         |
+---------------+---------+---------+---------+---------+
+
+=========================================================================
+
+
+Total REAL time to Xst completion: 6.00 secs
+Total CPU time to Xst completion: 5.68 secs
+ 
+--> 
+
+Total memory usage is 4485812 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :    2 (   0 filtered)
+Number of infos    :    2 (   0 filtered)
+

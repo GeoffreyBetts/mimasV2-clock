@@ -13,13 +13,13 @@
          <ClosedNode>/count_to_60 E:|Xilinx|projects|Clock|count_to_60.v</ClosedNode>
       </ClosedNodes>
       <SelectedItems>
-         <SelectedItem>clock_counter (E:/Xilinx/projects_test/mimasV2-clock-dev/clock_counter.v)</SelectedItem>
+         <SelectedItem>clock_counter (E:/Xilinx/projects/mimasV2-clock/clock_counter.v)</SelectedItem>
       </SelectedItems>
       <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
-      <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000100000000000000000000000000000000020200000001000000010000006400000176000000020000000000000000000000000200000064ffffffff000000810000000300000002000001760000000100000003000000000000000100000003</ViewHeaderState>
+      <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000100000000000000000000000000000000020200000001000000010000006400000122000000020000000000000000000000000200000064ffffffff000000810000000300000002000001220000000100000003000000000000000100000003</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >true</UserChangedColumnWidths>
-      <CurrentItem>clock_counter (E:/Xilinx/projects_test/mimasV2-clock-dev/clock_counter.v)</CurrentItem>
+      <CurrentItem>clock_counter (E:/Xilinx/projects/mimasV2-clock/clock_counter.v)</CurrentItem>
    </ItemView>
    <ItemView engineview="SynthesisOnly" sourcetype="DESUT_VERILOG" guiview="Process" >
       <ClosedNodes>
@@ -87,13 +87,13 @@
          <ClosedNode>/count_to_60_tb E:|Xilinx|projects_test|mimasV2-clock-dev|count_to_60_tb.v</ClosedNode>
       </ClosedNodes>
       <SelectedItems>
-         <SelectedItem>clock_counter_tb (E:/Xilinx/projects_test/mimasV2-clock-dev/clock_counter_tb.v)</SelectedItem>
+         <SelectedItem>clock_counter_tb (E:/Xilinx/projects/mimasV2-clock/clock_counter_tb.v)</SelectedItem>
       </SelectedItems>
       <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
-      <ViewHeaderState orientation="horizontal" >000000ff0000000000000001000000010000000000000000000000000000000002020000000100000001000000640000011d000000020000000000000000000000000200000064ffffffff0000008100000003000000020000011d0000000100000003000000000000000100000003</ViewHeaderState>
+      <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000100000000000000000000000000000000020200000001000000010000006400000176000000020000000000000000000000000200000064ffffffff000000810000000300000002000001760000000100000003000000000000000100000003</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >true</UserChangedColumnWidths>
-      <CurrentItem>clock_counter_tb (E:/Xilinx/projects_test/mimasV2-clock-dev/clock_counter_tb.v)</CurrentItem>
+      <CurrentItem>clock_counter_tb (E:/Xilinx/projects/mimasV2-clock/clock_counter_tb.v)</CurrentItem>
    </ItemView>
    <ItemView engineview="BehavioralSim" sourcetype="" guiview="Process" >
       <ClosedNodes>

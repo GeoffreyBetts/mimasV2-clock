@@ -71,3 +71,14 @@ _ngo/
 _xmsgs/
 
 # End of https://www.toptal.com/developers/gitignore/api/xilinxise
+
+# isim generated
+isim/
+*.wdb
+*_beh.exe
+*.log
+*.xmsgs
+*.cmd
+*.ini
+
+

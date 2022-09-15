@@ -21,17 +21,19 @@
 module decade_counter(
     input clk,				// (Clock == 1Hz)
     input reset,			// Synchronous active-high reset
+	 input ena,
 	 output reg out,		// high during rollover
     output reg[3:0] q	// output
     );
 	 
 	 always @(posedge clk) begin				// Statements handle 'out' output for rollover.
-		if (reset) out <= 1'b1;					// 'out' high at reset to make resetting easier
-		else if (q==4'd9) out <= 1'b1;		// 'out' high during rollover
-		else out <= 1'b0;							// 'out' low otherwise
+		if (ena) begin
+			if (q==4'd8) out <= 1'b1;		// 'out' high during rollover
+			else out <= 1'b0;							// 'out' low otherwise
 		
-		if (reset||(q==4'd9)) q <= 4'd00;	// If reset or q == 9, reset to 0
-		else q <= q+1'd1;							// Otherwise, increase by 1
+			if (reset||(q==4'd9)) q <= 4'd00;	// If reset or q == 9, reset to 0
+			else q <= q+1'd1;							// Otherwise, increase by 1
+		end
 	 end
 
 endmodule

@@ -22,24 +22,36 @@
 module count_to_12(
     input clk,				// clock = 1Hz
     input reset,			// synchronous active-high
+	 input ena,
     output reg out,		// output high for 1 clock signal during rollover
     output [7:0] q	// counter output
     );
-	 wire carry, carry2;
+	 wire carry;
+	 reg ro, ro_del;
 	 
 	 decade_counter first_digit	(.clk(clk),					// First digit
-											 .reset(reset||ro),		// Normal decade counter
+											 .reset(reset|ro_del),		// Normal decade counter
+											 .ena(ena|reset),
 											 .out(carry),
 											 .q(q[3:0]));
 																				// For second digit, 'out' isn't used
-	 decade_counter second_digit	(.clk(carry||(reset&clk)),	// Tied to rollover of first digit (reset is also tied due to being synchronous)
-											 .reset(reset||ro), 			// Either reset-high or during rollover
+	 decade_counter second_digit	(.clk(clk),	// Tied to rollover of first digit (reset is also tied due to being synchronous)
+											 .reset(reset|ro_del), 			// Either reset-high or during rollover
+											 .ena((ena&carry)|(ena&ro_del)|reset),
 											 .q(q[7:4]));					
 	
-	 assign ro = (q==8'h11);		// Resets counter at 11.
+
 	 always @(posedge clk) begin	// Always block to control 'out'.
-		if (reset) out <= 1'b1;		// high during reset to allow pm_toggle to reset to 1'b0
-		else out <= ro;				// Otherwise follows ro, ends up trailing it by 1 clock cycle (effectively)
+		if (reset) begin
+			ro <= 1'b0;
+			ro_del <= 1'b0;
+			out <= 1'b0;
+		end else if (ena) begin
+			ro <= (q==8'h9);	// Resets counter at 11.
+			ro_del <= ro;		// high during reset to allow pm_toggle to reset to 1'b0
+			out <= ro;			// Otherwise follows ro, ends up trailing it by 1 clock cycle (effectively)
+			
+		end
 	 end
 	 
 endmodule

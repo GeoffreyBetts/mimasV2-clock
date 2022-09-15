@@ -48,7 +48,7 @@ module clock_counter_tb;
 
 	initial begin
 		// Initialize Inputs
-		clk = 0;
+		clk = 1;
 		reset = 0;
 		ena = 0;
 
@@ -82,6 +82,13 @@ module clock_counter_tb;
 	end
 	
 	//Generate clock with a 10ns period
-	always #5 clk = ~clk;
+	always #2 clk = ~clk;
+	always begin
+		#3
+		ena = 1;
+		#2;
+		ena = 0;
+		#15;
+	end
 endmodule
 

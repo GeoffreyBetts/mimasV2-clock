@@ -27,6 +27,7 @@ module count_to_60_tb;
 	// Inputs
 	reg clk;
 	reg reset;
+	reg ena;
 
 	// Outputs
 	wire out;
@@ -36,14 +37,16 @@ module count_to_60_tb;
 	count_to_60 uut (
 		.clk(clk), 
 		.reset(reset), 
+		.ena(ena),
 		.out(out), 
 		.q(q)
 	);
 
 	initial begin
 		// Initialize Inputs
-		clk = 0;
+		clk = 1;
 		reset = 0;
+		ena = 0;
 
 		// Wait 100 ns for global reset to finish
 		#20;
@@ -56,9 +59,16 @@ module count_to_60_tb;
 		reset = 1'b1;
 		#20;
 		reset = 1'b0;
+		#3;
+		forever begin
+			ena = 1;
+			#2;
+			ena = 0;
+			#18;
+		end
 	end
 	
 	//Generate clock with a 10ns period
-	always #5 clk = ~clk;
+	always #2 clk = ~clk;
 endmodule
 

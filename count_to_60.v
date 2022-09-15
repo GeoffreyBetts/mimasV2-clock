@@ -46,7 +46,7 @@ module count_to_60(
 			ro_del <= 1'b0;
 			out <= 1'b0;
 		end else if (ena) begin
-			ro = (q==8'h58);
+			ro <= (q==8'h58);
 			ro_del <= ro;
 			out <= ro;
 		end

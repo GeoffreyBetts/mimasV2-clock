@@ -26,9 +26,9 @@ module decade_counter(
     output reg[3:0] q	// output
     );
 	 
-	 always @(posedge clk) begin				// Statements handle 'out' output for rollover.
+	 always @(posedge clk) begin					// Only does stuff on a positive clock edge when ena is high
 		if (ena) begin
-			if (q==4'd8) out <= 1'b1;		// 'out' high during rollover
+			if (q==4'd8) out <= 1'b1;				// 'out' high during rollover (specifically when q==4'd9)
 			else out <= 1'b0;							// 'out' low otherwise
 		
 			if (reset||(q==4'd9)) q <= 4'd00;	// If reset or q == 9, reset to 0

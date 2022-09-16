@@ -27,28 +27,29 @@ module count_to_60(
     output [7:0] q	// counter in hex
     );
 	 wire carry;
-	 reg ro, ro_del;
+	 reg ro;
 	 
 	 decade_counter first_digit	(.clk(clk),				// First digit
 											 .reset(reset),		// Normal decade counter
-											 .ena(ena|reset),
+											 .ena(ena|reset),		// Also enabled when reset is high, so it can reset on the next clock cycle
 											 .out(carry),
 											 .q(q[3:0]));
 
-	 decade_counter second_digit	(.clk(clk),	// Tied to rollover of first digit (reset is also tied due to being synchronous)
-											 .reset(reset|ro_del), // Either reset-high or during rollover
-											 .ena((ena&carry)|reset),
+	 decade_counter second_digit	(.clk(clk),
+											 .reset(reset|out), 			// Either reset-high or during delayed rollover
+											 .ena((ena&carry)|reset),	//enabled when ena&carry is high, as carry will be high for multiple clock cycles between ena signals
+											 .out(),							// Unconnected as not req. (Still gives a warning at synthesis tho)
 											 .q(q[7:4]));	
 	
 	 always @(posedge clk) begin
-		if (reset) begin
-			ro <= 1'b0;
-			ro_del <= 1'b0;
-			out <= 1'b0;
-		end else if (ena) begin
-			ro <= (q==8'h58);
-			ro_del <= ro;
-			out <= ro;
+		if (ena) begin
+			if (reset) begin				// During reset, change everything to low
+				ro <= 1'b0;
+				out <= 1'b0;
+			end else begin
+				ro <= (q==8'h57);			// ro high when q==8'h58
+				out <= ro;					// out is ro delayed by one ena signal, so high when q==8'h59
+			end
 		end
 	 end
 

@@ -28,37 +28,30 @@
     output [7:0] ss
     );
 	 wire pm_toggle, m_clk, h_clk;
-	 reg m_clk_del, h_clk_del, pm_toggle_del;
 
-	 count_to_60 seconds (.clk(clk),				// count-to-60 for seconds. 'out' is the minute clock
+	 count_to_60 seconds (.clk(clk),								// Fairly straightforward use of count_to_60 module for seconds
 								 .reset(reset),
 								 .ena(ena|reset),
 								 .out(m_clk),
 								 .q(ss));
 	 
-	 count_to_60 minutes (.clk(clk), //counter updates when seconds rolls over, or reset occurs
+	 count_to_60 minutes (.clk(clk), 							// Module for minutes
 								 .reset(reset),
-								 .ena((ena&m_clk_del)|reset),
+								 .ena((ena&m_clk)|reset),			// Only enabled when ena is high and seconds is at 8'h59
 								 .out(h_clk),
 								 .q(mm));
 								 
-	 count_to_12 hours	(.clk(clk), //counter updates when minutes rolls over, or reset occurs
+	 count_to_12 hours	(.clk(clk), 							// Module for hours
 								 .reset(reset),
-								 .ena((ena&m_clk_del&h_clk_del)|reset),
+								 .ena((ena&m_clk&h_clk)|reset),	// Only enabled when ena is high, and minutes and seconds are both at 8'h59
 								 .out(pm_toggle),
 								 .q(hh));
 	 	 
-	 always @(posedge clk) begin	// If reset is high, pm = 0. Otherwise toggle pm
-		if (reset) begin
-			m_clk_del <= 1'b0;
-			h_clk_del <= 1'b0;
-			pm_toggle_del <= 1'b0;
+	 always @(posedge clk) begin	
+		if (reset) begin											// Reset everything to low
 			pm <= 1'b0;
 		end else if (ena) begin
-			m_clk_del <= m_clk;
-			h_clk_del <= h_clk;
-			pm_toggle_del <= pm_toggle;
-			pm <= (pm_toggle_del&h_clk_del&m_clk_del&ena)? ~pm:pm;
+			pm <= (pm_toggle&h_clk&m_clk&ena)? ~pm:pm;	// If time is at 11:59:59, toggle pm on the next clock cycle when ena is high
 		end
 	 end
 	 

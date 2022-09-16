@@ -4,15 +4,15 @@
 // Company: 
 // Engineer:
 //
-// Create Date:   10:10:50 09/14/2022
-// Design Name:   clock_counter
-// Module Name:   E:/Xilinx/projects/mimasV2-clock/clock_counter_tb.v
+// Create Date:   11:54:02 09/16/2022
+// Design Name:   top_module
+// Module Name:   E:/Xilinx/projects/mimasV2-clock/top_module_tb.v
 // Project Name:  Clock
 // Target Device:  
 // Tool versions:  
 // Description: 
 //
-// Verilog Test Fixture created by ISE for module: clock_counter
+// Verilog Test Fixture created by ISE for module: top_module
 //
 // Dependencies:
 // 
@@ -22,12 +22,14 @@
 // 
 ////////////////////////////////////////////////////////////////////////////////
 
-module clock_counter_tb;
+module top_module_tb;
 
 	// Inputs
 	reg clk;
 	reg reset;
 	reg ena;
+	reg [1:0] sel;
+	reg [7:0] in;
 
 	// Outputs
 	wire pm;
@@ -36,59 +38,43 @@ module clock_counter_tb;
 	wire [7:0] ss;
 
 	// Instantiate the Unit Under Test (UUT)
-	clock_counter uut (
+	top_module uut (
 		.clk(clk), 
 		.reset(reset), 
 		.ena(ena), 
+		.sel(sel), 
+		.in(in), 
 		.pm(pm), 
 		.hh(hh), 
 		.mm(mm), 
 		.ss(ss)
 	);
-
+	
+	// Generate clock with a freq of 12 MHz, or period of 83.33333 ns
+	// Not fully accurate here tho
+	always #41.665 clk = ~clk;
+	
 	initial begin
 		// Initialize Inputs
-		clk = 1;
+		clk = 0;
 		reset = 0;
 		ena = 0;
+		sel = 0;
+		in = 0;
 
-		// Wait 20 ns for global reset to finish
-		#20;
+		// Wait 100 ns for global reset to finish
+		#100;
         
-		// Generate clock with a 10ns period
-		//always #5 clk = ~clk;
-		
-		
-		// Reset active-high to reset device
+		// Add stimulus here
 		reset = 1'b1;
-		#20;
+		#100;
 		reset = 1'b0;
-		
-		#20;
-		ena = 1'b1;
-		#20;
-		ena = 1'b0;
-		#10;
-		ena = 1'b1;
-		
-		// Wait '24 hours' (864 us)
-		#864000;
-		// Wait 'some time'
-		#50000;
-		
+		#1500000000; //1.5 seconds
 		reset = 1'b1;
-		#20
+		#100;
 		reset = 1'b0;
+
 	end
-	
-	//Generate clock with a 4ns period
-	always #2 clk = ~clk;
-	always begin
-		#3
-		ena = 1;
-		#2;
-		ena = 0;
-		#15;
-	end
+      
 endmodule
 

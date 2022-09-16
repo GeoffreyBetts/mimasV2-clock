@@ -19,7 +19,7 @@
 //
 //////////////////////////////////////////////////////////////////////////////////
 module top_module(
-    input clk,			// Frequency = 1Hz
+    input clk,			// Frequency = 12 MHz
     input reset,		// synchronous active-high reset
     input ena,			// enable clock
     input [1:0] sel,	// select which time to change, only can use when (ena == 0)
@@ -30,5 +30,16 @@ module top_module(
     output [7:0] ss	// seconds
     );
 
-
+	 one_hertz_gen one_second (.clk(clk),				// This module generates 'signal' with a frequency of 1 Hz, for 1 clock cycle
+										.reset(reset),
+										.signal(signal));
+										
+	 clock_counter clock_time (.clk(clk),				// This module updates the clock time when it recieves 'signal' on the next clock cycle
+										.reset(reset),			// Then outputs the time in hex (hh:mm:ss) with an am/pm signal
+										.ena(signal),
+										.pm(pm),
+										.hh(hh),
+										.mm(mm),
+										.ss(ss));
+										
 endmodule

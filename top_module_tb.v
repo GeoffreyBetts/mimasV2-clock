@@ -27,7 +27,7 @@ module top_module_tb;
 	// Inputs
 	reg clk;
 	reg reset;
-	reg ena;
+	reg wr;
 	reg [1:0] sel;
 	reg [7:0] in;
 
@@ -39,15 +39,15 @@ module top_module_tb;
 
 	// Instantiate the Unit Under Test (UUT)
 	top_module uut (
-		.clk(clk), 
-		.reset(reset), 
-		.ena(ena), 
-		.sel(sel), 
-		.in(in), 
-		.pm(pm), 
-		.hh(hh), 
-		.mm(mm), 
-		.ss(ss)
+		.i_clk(clk), 
+		.i_reset(reset), 
+		.i_wr(wr), 
+		.i_sel(sel), 
+		.i_in(in), 
+		.o_pm(pm), 
+		.o_hh(hh), 
+		.o_mm(mm), 
+		.o_ss(ss)
 	);
 	
 	// Generate clock with a freq of 12 MHz, or period of 83.33333 ns
@@ -58,7 +58,7 @@ module top_module_tb;
 		// Initialize Inputs
 		clk = 0;
 		reset = 0;
-		ena = 0;
+		wr = 0;
 		sel = 0;
 		in = 0;
 

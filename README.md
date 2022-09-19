@@ -4,7 +4,7 @@ As devkit only contains 3 7-seg displays, will need an alternate display method;
 Programming is done using Xilinx ISE WebPACK 14.7.
 
 ## Specifications
-- [ ] Generate a 1Hz clock signal
+- [x] Generate a 1Hz clock signal
 - [x] Count a clock signal in a hh:mm:ss format
 - [x] Have an alternating am/pm signal when the time rolls over
 - [ ] Display the time on an output device

@@ -33,9 +33,9 @@ module one_hertz_gen_tb;
 
 	// Instantiate the Unit Under Test (UUT)
 	one_hertz_gen uut (
-		.clk(clk), 
-		.reset(reset), 
-		.signal(signal)
+		.i_clk(clk), 
+		.i_reset(reset), 
+		.o_signal(signal)
 	);
 	
 	// Generate clock with a freq of 12 MHz, or period of 83.33333 ns

@@ -17,13 +17,13 @@
          <ClosedNode>/top_module E:|Xilinx|projects|mimasV2-clock|top_module.v/clock_time - clock_counter/seconds - count_to_60</ClosedNode>
       </ClosedNodes>
       <SelectedItems>
-         <SelectedItem>top_module (E:/Xilinx/projects/mimasV2-clock/top_module.v)</SelectedItem>
+         <SelectedItem>button_debounce (E:/Xilinx/projects/mimasV2-clock/button_debounce.v)</SelectedItem>
       </SelectedItems>
       <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
       <ViewHeaderState orientation="horizontal" >000000ff0000000000000001000000010000000000000000000000000000000002020000000100000001000000640000014e000000020000000000000000000000000200000064ffffffff0000008100000003000000020000014e0000000100000003000000000000000100000003</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >true</UserChangedColumnWidths>
-      <CurrentItem>top_module (E:/Xilinx/projects/mimasV2-clock/top_module.v)</CurrentItem>
+      <CurrentItem>button_debounce (E:/Xilinx/projects/mimasV2-clock/button_debounce.v)</CurrentItem>
    </ItemView>
    <ItemView engineview="SynthesisOnly" sourcetype="DESUT_VERILOG" guiview="Process" >
       <ClosedNodes>
@@ -71,69 +71,45 @@
          <ClosedNode>Design Utilities</ClosedNode>
       </ClosedNodes>
       <SelectedItems>
-         <SelectedItem/>
+         <SelectedItem></SelectedItem>
       </SelectedItems>
       <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
       <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000000000000000000f8000000010000000100000000000000000000000064ffffffff000000810000000000000001000000f80000000100000000</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
-      <CurrentItem/>
+      <CurrentItem></CurrentItem>
    </ItemView>
    <ItemView engineview="BehavioralSim" guiview="Source" compilemode="AutoCompile" >
       <ClosedNodes>
          <ClosedNodesVersion>2</ClosedNodesVersion>
+         <ClosedNode>/button_debounce E:|Xilinx|projects|mimasV2-clock|button_debounce.v</ClosedNode>
+         <ClosedNode>/button_debounce_tb E:|Xilinx|projects|mimasV2-clock|button_debounce_tb.v</ClosedNode>
+         <ClosedNode>/button_debounce_tb E:|Xilinx|projects|mimasV2-clock|button_debounce_tb.v/uut - button_debounce</ClosedNode>
          <ClosedNode>/clock_counter_tb E:|Xilinx|projects_test|mimasV2-clock-dev|clock_counter_tb.v/uut - clock_counter</ClosedNode>
          <ClosedNode>/clock_counter_tb E:|Xilinx|projects|mimasV2-clock|clock_counter_tb.v</ClosedNode>
          <ClosedNode>/clock_counter_tb E:|Xilinx|projects|mimasV2-clock|clock_counter_tb.v/uut - clock_counter</ClosedNode>
          <ClosedNode>/clock_counter_tb E:|Xilinx|projects|mimasV2-clock|clock_counter_tb.v/uut - clock_counter/hours - count_to_12</ClosedNode>
          <ClosedNode>/clock_counter_tb E:|Xilinx|projects|mimasV2-clock|clock_counter_tb.v/uut - clock_counter/minutes - count_to_60</ClosedNode>
+         <ClosedNode>/count_to_12_tb E:|Xilinx|projects|mimasV2-clock|count_to_12_tb.v</ClosedNode>
          <ClosedNode>/count_to_60 E:|Xilinx|projects|Clock|count_to_60.v</ClosedNode>
          <ClosedNode>/count_to_60_tb E:|Xilinx|projects_test|mimasV2-clock-dev|count_to_60_tb.v</ClosedNode>
          <ClosedNode>/count_to_60_tb E:|Xilinx|projects|mimasV2-clock|count_to_60_tb.v</ClosedNode>
+         <ClosedNode>/one_hertz_gen_tb E:|Xilinx|projects|mimasV2-clock|one_hertz_gen_tb.v</ClosedNode>
          <ClosedNode>/top_module_tb E:|Xilinx|projects|mimasV2-clock|top_module_tb.v</ClosedNode>
       </ClosedNodes>
       <SelectedItems>
-         <SelectedItem>top_module_tb (E:/Xilinx/projects/mimasV2-clock/top_module_tb.v)</SelectedItem>
+         <SelectedItem>button_debounce_tb (E:/Xilinx/projects/mimasV2-clock/button_debounce_tb.v)</SelectedItem>
       </SelectedItems>
       <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
-      <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000100000000000000000000000000000000020200000001000000010000006400000121000000020000000000000000000000000200000064ffffffff000000810000000300000002000001210000000100000003000000000000000100000003</ViewHeaderState>
+      <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000100000000000000000000000000000000020200000001000000010000006400000134000000020000000000000000000000000200000064ffffffff000000810000000300000002000001340000000100000003000000000000000100000003</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >true</UserChangedColumnWidths>
-      <CurrentItem>top_module_tb (E:/Xilinx/projects/mimasV2-clock/top_module_tb.v)</CurrentItem>
+      <CurrentItem>button_debounce_tb (E:/Xilinx/projects/mimasV2-clock/button_debounce_tb.v)</CurrentItem>
    </ItemView>
    <ItemView engineview="BehavioralSim" sourcetype="" guiview="Process" >
       <ClosedNodes>
          <ClosedNodesVersion>1</ClosedNodesVersion>
          <ClosedNode>Design Utilities/Compile HDL Simulation Libraries</ClosedNode>
-      </ClosedNodes>
-      <SelectedItems>
-         <SelectedItem/>
-      </SelectedItems>
-      <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
-      <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
-      <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000000000000000000f8000000010000000100000000000000000000000064ffffffff000000810000000000000001000000f80000000100000000</ViewHeaderState>
-      <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
-      <CurrentItem/>
-   </ItemView>
-   <ItemView engineview="BehavioralSim" sourcetype="DESUT_VERILOG" guiview="Process" >
-      <ClosedNodes>
-         <ClosedNodesVersion>1</ClosedNodesVersion>
-      </ClosedNodes>
-      <SelectedItems>
-         <SelectedItem/>
-      </SelectedItems>
-      <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
-      <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
-      <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000000000000000000f8000000010000000100000000000000000000000064ffffffff000000810000000000000001000000f80000000100000000</ViewHeaderState>
-      <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
-      <CurrentItem/>
-   </ItemView>
-   <SourceProcessView>000000ff00000000000000020000011b0000011b01000000050100000002</SourceProcessView>
-   <CurrentView>Implementation</CurrentView>
-   <ItemView engineview="SynthesisOnly" sourcetype="DESUT_UCF" guiview="Process" >
-      <ClosedNodes>
-         <ClosedNodesVersion>1</ClosedNodesVersion>
-         <ClosedNode>User Constraints</ClosedNode>
       </ClosedNodes>
       <SelectedItems>
          <SelectedItem></SelectedItem>
@@ -143,5 +119,34 @@
       <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000000000000000000f8000000010000000100000000000000000000000064ffffffff000000810000000000000001000000f80000000100000000</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
       <CurrentItem></CurrentItem>
+   </ItemView>
+   <ItemView engineview="BehavioralSim" sourcetype="DESUT_VERILOG" guiview="Process" >
+      <ClosedNodes>
+         <ClosedNodesVersion>1</ClosedNodesVersion>
+      </ClosedNodes>
+      <SelectedItems>
+         <SelectedItem></SelectedItem>
+      </SelectedItems>
+      <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
+      <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
+      <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000000000000000000f8000000010000000100000000000000000000000064ffffffff000000810000000000000001000000f80000000100000000</ViewHeaderState>
+      <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
+      <CurrentItem></CurrentItem>
+   </ItemView>
+   <SourceProcessView>000000ff00000000000000020000011b0000011b01000000050100000002</SourceProcessView>
+   <CurrentView>Implementation</CurrentView>
+   <ItemView engineview="SynthesisOnly" sourcetype="DESUT_UCF" guiview="Process" >
+      <ClosedNodes>
+         <ClosedNodesVersion>1</ClosedNodesVersion>
+         <ClosedNode>User Constraints</ClosedNode>
+      </ClosedNodes>
+      <SelectedItems>
+         <SelectedItem/>
+      </SelectedItems>
+      <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
+      <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
+      <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000000000000000000f8000000010000000100000000000000000000000064ffffffff000000810000000000000001000000f80000000100000000</ViewHeaderState>
+      <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
+      <CurrentItem/>
    </ItemView>
 </Project>

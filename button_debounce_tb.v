@@ -30,29 +30,30 @@ module button_debounce_tb;
 	reg i_btn;
 
 	// Outputs
-	wire o_q;
+	wire o_pulse;
 
 	// Instantiate the Unit Under Test (UUT)
 	button_debounce uut (
 		.i_clk(i_clk), 
 		.i_ena(i_ena), 
 		.i_btn(i_btn), 
-		.o_q(o_q)
+		.o_pulse(o_pulse)
 	);
 	
 	// Generate clock with a period of 4 ns
 	always #41.665 i_clk = ~i_clk;
 	
 	always begin
-		#145.8275  i_ena = 1'b1; //7
-		#41.665  	i_ena = 1'b0; //9
-		#229.1575 i_ena = 1'b0; //416.16 ns
-		#1999583.35; 					//2 ms
+		#20;
+		i_ena = 1'b1;
+		#41.665;
+		i_ena = 1'b0;
+		#8332938.335; 	//Get a period of 83.330ns*100000 = 8333000 ns = 8.333 ms
 	end
 	
 	initial begin
 		// Initialize Inputs
-		i_clk = 1;
+		i_clk = 0;
 		i_ena = 0;
 		i_btn = 0;
 
@@ -70,7 +71,7 @@ module button_debounce_tb;
 		#500000		i_btn = 0; 	//8.5
 		#1000000		i_btn = 1; 	//9.5		
 		
-		#50000000;	//50 ms
+		#60000000;	//50 ms
 		
 		i_btn = 0;
 		#1000000		i_btn = 1; 	//1

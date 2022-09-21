@@ -18,6 +18,7 @@
 // Additional Comments: Assume bouncing can last upto 10ms.
 // Preliminay testing shows that debouncer works with 10ms debounce time with an enable frequency of 2ms
 // Delays by 20 ms however (inc. 10ms debounce period)
+// Minimum time to press button 5 times, 600ms, therefore, ontime ~= 60ms
 //////////////////////////////////////////////////////////////////////////////////
 module button_debounce(
     input i_clk,
@@ -32,15 +33,10 @@ module button_debounce(
 						  .i_ena(i_ena),
 						  .i_d(i_btn),
 						  .o_q(w_delay1));
-						  
-	 my_dff dff_ms1 (.i_clk(i_clk),			// Delays the input by one clock cycle to reduce chance of metastability screwing with circuit
-						  .i_ena(i_ena),
-						  .i_d(w_delay1),
-						  .o_q(w_delay2));						  
-	 
+											  
 	 my_dff dff_pq0 (.i_clk(i_clk),
 						  .i_ena(i_ena),
-						  .i_d(w_delay2),
+						  .i_d(w_delay1),
 						  .o_q(w_pq0));
 							
 	 my_dff dff_pq1 (.i_clk(i_clk),			

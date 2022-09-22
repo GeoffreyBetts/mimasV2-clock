@@ -30,6 +30,8 @@ module count_to_60_updown_tb;
 	reg i_ena;
 	reg i_up;
 	reg i_down;
+	reg i_wr;
+	reg [7:0] i_in;
 
 	// Outputs
 	wire [7:0] o_q;
@@ -41,6 +43,8 @@ module count_to_60_updown_tb;
 		.i_ena(i_ena), 
 		.i_up(i_up), 
 		.i_down(i_down), 
+		.i_wr(i_wr),
+		.i_in(i_in),
 		.o_q(o_q)
 	);
 	
@@ -62,6 +66,8 @@ module count_to_60_updown_tb;
 		i_ena = 0;
 		i_up = 0;
 		i_down = 0;
+		i_wr = 0;
+		i_in = 8'h37;
 
 		// Wait 21 ns for global reset to finish
 		#21;
@@ -87,8 +93,17 @@ module count_to_60_updown_tb;
 		i_down = 1;
 		#1800;
 		i_up = 0;
-		i_down = 0;
 		//#200;
+		#40;
+		i_wr = 1;
+		#20;
+		i_wr = 0;
+		#740;
+		i_down = 0;
+		#20;
+		i_wr = 1;
+		#20;
+		i_wr = 0;
 
 	end
       

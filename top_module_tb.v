@@ -4,7 +4,7 @@
 // Company: 
 // Engineer:
 //
-// Create Date:   11:54:02 09/16/2022
+// Create Date:   12:01:39 09/23/2022
 // Design Name:   top_module
 // Module Name:   E:/Xilinx/projects/mimasV2-clock/top_module_tb.v
 // Project Name:  Clock
@@ -25,55 +25,103 @@
 module top_module_tb;
 
 	// Inputs
-	reg clk;
-	reg reset;
-	reg wr;
-	reg [1:0] sel;
-	reg [7:0] in;
+	reg i_clk;
+	reg i_reset_btn;
+	reg i_wr_btn;
+	reg i_val_inc_btn;
+	reg i_val_dec_btn;
+	reg i_sel_inc_btn;
+	reg i_sel_dec_btn;
+	
+	wire w_wr;
+	wire w_clock_pulse;
+	wire w_input_pulse;
+	wire [1:0] w_sel;
+	wire [7:0] w_val;
 
 	// Outputs
-	wire pm;
-	wire [7:0] hh;
-	wire [7:0] mm;
-	wire [7:0] ss;
+	wire o_pm;
+	wire [7:0] o_hh;
+	wire [7:0] o_mm;
+	wire [7:0] o_ss;
 
 	// Instantiate the Unit Under Test (UUT)
 	top_module uut (
-		.i_clk(clk), 
-		.i_reset(reset), 
-		.i_wr(wr), 
-		.i_sel(sel), 
-		.i_in(in), 
-		.o_pm(pm), 
-		.o_hh(hh), 
-		.o_mm(mm), 
-		.o_ss(ss)
+		.i_clk(i_clk), 
+		.i_reset_btn(i_reset_btn), 
+		.i_wr_btn(i_wr_btn), 
+		.i_val_inc_btn(i_val_inc_btn), 
+		.i_val_dec_btn(i_val_dec_btn), 
+		.i_sel_inc_btn(i_sel_inc_btn), 
+		.i_sel_dec_btn(i_sel_dec_btn), 
+		.o_pm(o_pm), 
+		.o_hh(o_hh), 
+		.o_mm(o_mm), 
+		.o_ss(o_ss),
+		.w_wr(w_wr),
+		.w_clock_pulse(w_clock_pulse),
+		.w_input_pulse(w_input_pulse),
+		.w_sel(w_sel),
+		.w_val(w_val)
 	);
 	
-	// Generate clock with a freq of 12 MHz, or period of 83.33333 ns
-	// Not fully accurate here tho
-	always #41.665 clk = ~clk;
+	// Initialise 12 MHz clock (41.665*2 period)
+	always #41.665 i_clk = ~i_clk; //Divide numbers by 40ish to increase sim speed
 	
 	initial begin
 		// Initialize Inputs
-		clk = 0;
-		reset = 0;
-		wr = 0;
-		sel = 0;
-		in = 0;
-
-		// Wait 100 ns for global reset to finish
+		i_clk = 0;
+		i_reset_btn = 0;
+		i_wr_btn = 0;
+		i_val_inc_btn = 0;
+		i_val_dec_btn = 0;
+		i_sel_inc_btn = 0;
+		i_sel_dec_btn = 0;
+    
+		// Wait 100 ns for global reset to finish		// 1000000 ns in 1 ms
 		#100;
         
 		// Add stimulus here
-		reset = 1'b1;
-		#100;
-		reset = 1'b0;
+		i_reset_btn = 1'b1;
+		#60000000; // 60 ms for button press
+		i_reset_btn = 1'b0;
+		
 		#1500000000; //1.5 seconds
-		reset = 1'b1;
-		#100;
-		reset = 1'b0;
+		i_reset_btn = 1'b1;
+		#60000000;
+		i_reset_btn = 1'b0;
+		
+		#1500000000;  // 1.5 seconds
+		#1500000000;  // 1.5 seconds
+		
+		i_wr_btn = 1'b1;
+		#60000000;// 60 ms for button press
+		i_wr_btn = 1'b0;
+		
+		#1500000000;  // 1.5 seconds
+		
+		i_sel_inc_btn = 1'b1;
+		#60000000;
+		i_sel_inc_btn = 1'b0;	
 
+		#1500000000;  // 1.5 seconds
+		
+		i_val_inc_btn = 1'b1;
+		#60000000;
+		i_val_inc_btn = 1'b0;
+		
+		#1500000000;  // 1.5 seconds
+		
+		i_sel_inc_btn = 1'b1;
+		#60000000; 
+		i_sel_inc_btn = 1'b0;	
+
+		#1500000000;  // 1.5 seconds
+		
+		i_val_dec_btn = 1'b1;
+		#60000000; 
+		i_val_dec_btn = 1'b0;
+		
 	end
       
 endmodule

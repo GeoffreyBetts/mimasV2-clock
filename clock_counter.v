@@ -33,13 +33,13 @@
 	 wire w_pm_toggle, w_m_clk, w_h_clk;
 	 wire w_write_ss, w_write_mm, w_write_hh, w_write_pm;
 	 wire w_ena_ss, w_ena_mm, w_ena_hh;
-	 reg [7:0] w_in_del;
+	 //reg [7:0] w_in_del;
 
 	 count_to_60 seconds (.i_clk(i_clk),							// Fairly straightforward use of count_to_60 module for seconds
 								 .i_reset(i_reset),
 								 .i_ena(w_ena_ss|i_reset),
 								 .i_wr(w_write_ss),
-								 .i_in(w_in_del),
+								 .i_in(i_in),
 								 .o_out(w_m_clk),
 								 .o_q(o_ss));
 	 
@@ -47,7 +47,7 @@
 								 .i_reset(i_reset),
 								 .i_ena(w_ena_mm|i_reset),			// Only enabled when ena is high and seconds is at 8'h59
 								 .i_wr(w_write_mm),
-								 .i_in(w_in_del),
+								 .i_in(i_in),
 								 .o_out(w_h_clk),
 								 .o_q(o_mm));
 								 
@@ -55,11 +55,11 @@
 								 .i_reset(i_reset),
 								 .i_ena(w_ena_hh|i_reset),	// Only enabled when ena is high, and minutes and seconds are both at 8'h59
 								 .i_wr(w_write_hh),
-								 .i_in(w_in_del),								 
+								 .i_in(i_in),								 
 								 .o_out(w_pm_toggle),
 								 .o_q(o_hh));
 	
-	 demux_1_to_4 sel		(.i_clk(i_clk),		// Depending on sel, will enable writing to each module when wr is high
+	 demux_1_to_4 sel		(//.i_clk(i_clk),		// Depending on sel, will enable writing to each module when wr is high
 								 .i_ena(i_wr),
 								 .i_sel(i_sel),
 								 .o_a(w_write_ss),
@@ -74,9 +74,9 @@
 	 always @(posedge i_clk) begin	
 		if (i_reset) begin														// Reset everything to low
 			o_pm <= 1'b0;
-			w_in_del <= 8'h00;
+			//w_in_del <= 8'h00;
 		end else if (i_ena) begin
-			w_in_del <= i_in;
+			//w_in_del <= i_in;
 			if (i_wr&w_write_pm) o_pm <= i_in[0];
 			else if (~i_wr) o_pm <= (w_pm_toggle&w_h_clk&w_m_clk&i_ena)? ~o_pm:o_pm;	// If time is at 11:59:59, toggle pm on the next clock cycle when ena is high
 		end

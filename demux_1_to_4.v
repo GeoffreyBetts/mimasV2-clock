@@ -19,7 +19,6 @@
 //
 //////////////////////////////////////////////////////////////////////////////////
 module demux_1_to_4(							// 1 to 4 demux w/ enable
-    input i_clk,
 	 input i_ena,
     input [1:0] i_sel,
     output reg o_a,
@@ -28,7 +27,7 @@ module demux_1_to_4(							// 1 to 4 demux w/ enable
     output reg o_d
     );
 
-	 always @(posedge i_clk) begin
+	 always @(*) begin
 		o_a <= 1'b0;
 		o_b <= 1'b0;
 		o_c <= 1'b0;

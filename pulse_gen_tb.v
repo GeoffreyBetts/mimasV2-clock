@@ -4,15 +4,15 @@
 // Company: 
 // Engineer:
 //
-// Create Date:   11:06:44 09/16/2022
-// Design Name:   one_hertz_gen
-// Module Name:   E:/Xilinx/projects/mimasV2-clock/one_hertz_gen_tb.v
+// Create Date:   12:36:54 09/23/2022
+// Design Name:   pulse_gen
+// Module Name:   E:/Xilinx/projects/mimasV2-clock/pulse_gen_tb.v
 // Project Name:  Clock
 // Target Device:  
 // Tool versions:  
 // Description: 
 //
-// Verilog Test Fixture created by ISE for module: one_hertz_gen
+// Verilog Test Fixture created by ISE for module: pulse_gen
 //
 // Dependencies:
 // 
@@ -22,28 +22,26 @@
 // 
 ////////////////////////////////////////////////////////////////////////////////
 
-module one_hertz_gen_tb;
+module pulse_gen_tb;
 
 	// Inputs
 	reg i_clk;
 	reg i_reset;
 
 	// Outputs
-	wire signal_vf;
-	wire signal_f;
-	wire signal_n;
+	wire o_pulse_vf;
+	wire o_pulse_f;
+	wire o_pulse_n;
 
 	// Instantiate the Unit Under Test (UUT)
-	one_hertz_gen uut (
+	pulse_gen uut (
 		.i_clk(i_clk), 
 		.i_reset(i_reset), 
-		.o_signal_vf(signal_vf),
-		.o_signal_f(signal_f),
-		.o_signal_n(signal_n)
+		.o_pulse_vf(o_pulse_vf), 
+		.o_pulse_f(o_pulse_f), 
+		.o_pulse_n(o_pulse_n)
 	);
-	
-	// Generate clock with a freq of 12 MHz, or period of 83.33333 ns
-	// Not fully possible, so 84 ns instead.
+
 	always #41.665 i_clk = ~i_clk;
 	
 	initial begin

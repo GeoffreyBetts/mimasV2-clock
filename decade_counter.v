@@ -22,24 +22,31 @@ module decade_counter(
     input i_clk,				// (Clock == 1Hz)
     input i_reset,			// Synchronous active-high reset
 	 input i_ena,
+	 input i_inc,
 	 input i_wr,
 	 input [3:0] i_in,
-	 output reg o_out,		// high during rollover
+	 output reg o_roll_high,		// high during rollover
+	 output reg o_roll_low,
     output reg[3:0] o_q	// output
     );
 	 
 	 always @(posedge i_clk) begin					// Only does stuff on a positive clock edge when ena is high
 		if (i_ena) begin	
-		
-			if (o_q==4'd8) o_out <= 1'b1;				// 'out' high during rollover (specifically when q==4'd9)
-			else o_out <= 1'b0;							// 'out' low otherwise	
+			o_roll_high <= ((o_q==4'h8&i_inc)|(o_q==4'h0&~i_inc));
+			o_roll_low <= ((o_q==4'h1&~i_inc)|(o_q==4'h9&i_inc));
 			
-			if (i_wr) begin										// If i_wr is high, write input to output
-				o_q <= i_in;
-			end else begin											// Else, count upwwards
-				if (i_reset||(o_q==4'd9)) o_q <= 4'd00;	// If reset or q == 9, reset to 0
-				else o_q <= o_q+1'd1;							// Otherwise, increase by 1
+			if (i_reset) begin
+				o_q <= 1'h0;
+				o_roll_low <= 1'b1;
+			end else if (i_wr) o_q <= i_in;
+			else if (i_inc) begin
+				if (o_q==4'h9) o_q <= 4'h0;
+				else o_q <= o_q+1'h1;
+			end else begin
+				if (o_q==4'h0) o_q <= 4'h9;
+				else o_q <= o_q-1'h1;
 			end
+			
 		end
 	 end
 

@@ -51,6 +51,7 @@ module top_module(
 										.o_pulse_f(w_input_pulse),
 										.o_pulse_n(w_clock_pulse));
 										
+	 /*
 	 clock_counter clock_time (.i_clk(i_clk),				// This module updates the clock time when it recieves 'signal' on the next clock cycle
 										.i_reset(i_reset_btn),			// Then outputs the time in hex (hh:mm:ss) with an am/pm signal
 										.i_ena(w_clock_pulse|i_reset_btn),
@@ -61,7 +62,8 @@ module top_module(
 										.o_hh(o_hh),
 										.o_mm(o_mm),
 										.o_ss(o_ss));
-										
+	 */
+	
 	 input_debounce btn_debouncer (.i_clk(i_clk),
 											 .i_ena(w_input_pulse), //enable once every 8.333 ms (99996 clock pulses)
 											 //.i_reset_btn(i_reset_btn),
@@ -75,22 +77,6 @@ module top_module(
 											 .o_val_inc_pulse(w_val_inc_pulse),
 											 .o_val_dec_pulse(w_val_dec_pulse),
 											 .o_sel_inc_pulse(w_sel_inc_pulse),
-											 .o_sel_dec_pulse(w_sel_dec_pulse));
-										
-	 clock_edit clock_editor (.i_clk(i_clk),
-									  .i_ena(w_input_pulse|i_reset_btn),
-									  .i_reset(i_reset_btn),
-									  .i_wr_pulse(w_wr_pulse),
-									  .i_val_inc_pulse(w_val_inc_pulse),
-									  .i_val_dec_pulse(w_val_dec_pulse),
-									  .i_sel_inc_pulse(w_sel_inc_pulse),
-									  .i_sel_dec_pulse(w_sel_dec_pulse),
-									  .i_ss(o_ss),
-									  .i_mm(o_mm),
-									  .i_hh(o_hh),
-									  .i_pm(o_pm),
-									  .o_wr(w_wr),
-									  .o_sel(w_sel),
-									  .o_val(w_val));
+											 .o_sel_dec_pulse(w_sel_dec_pulse));										
 									  
 endmodule

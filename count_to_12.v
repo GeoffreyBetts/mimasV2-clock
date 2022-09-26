@@ -20,43 +20,46 @@
 // Counts from 0-to-11. Outputs high when counter rolls over.
 //////////////////////////////////////////////////////////////////////////////////
 module count_to_12(
-    input i_clk,				// clock = 1Hz
+    input i_clk,				
     input i_reset,			// synchronous active-high
 	 input i_ena,
-	 input i_wr,
-	 input [7:0] i_in,
-    output reg o_out,		// output high for 1 clock signal during rollover
-    output [7:0] o_q	// counter output
+	 input i_inc,
+    output reg o_roll,		// output high for 1 clock signal during rollover
+    output [7:0] o_q			// counter output	 
     );
-	 wire w_carry;
-	 reg r_ro = 1'b0;
+	 wire w_carry_high, w_carry_low;
+	 wire w_ena2;
 	 
-	 decade_counter first_digit	(.i_clk(i_clk),						// First digit
-											 .i_reset(i_reset|o_out),			// Normal decade counter
-											 .i_ena(i_ena|i_reset),
-											 .i_wr(i_wr),
-											 .i_in(i_in[3:0]),
-											 .o_out(w_carry),
+	 assign w_ena2 = i_ena&((i_inc&w_carry_high)|(~i_inc&w_carry_low)|o_roll);
+	 
+	 // First Digit: Fairely straight forward decade counter. Couple differences however
+	 // High-to-low rollover triggered with reset
+	 // Low-to-high rollover triggered with write function
+	 decade_counter first_digit	(.i_clk(i_clk),						
+											 .i_reset(i_reset|(o_roll&i_inc)),			
+											 .i_ena(i_ena),
+											 .i_inc(i_inc),
+											 .i_wr(w_carry_low&~i_inc&~o_q[4]),
+											 .i_in(4'h1),
+											 .o_roll_high(w_carry_high),
+											 .o_roll_low(w_carry_low),
 											 .o_q(o_q[3:0]));
-																											// For second digit, 'out' isn't used
-	 decade_counter second_digit	(.i_clk(i_clk),											// Tied to rollover of first digit (reset is also tied due to being synchronous)
-											 .i_reset(i_reset|o_out), 								// Either reset-high or during rollover
-											 .i_ena((i_ena&(w_carry|o_out|i_wr))|i_reset), // Also enabled when ro_del is high. Different to 0-59 counter as carry is high when first_digit==4'h9, but
-											 .i_wr(i_wr),												// here has to roll over when the first digit==4'h1
-											 .i_in(i_in[7:4]),
-											 .o_out(),													// Unconnected as not req. (Still gives a warning at synthesis tho)
-											 .o_q(o_q[7:4]));											
+											 
+	 // Second Digit: Uses a dff instead, since only controls 1 bit
+	 // i_d found with truth table: toggles when triggered, but brought to 0 when reset is high
+	 // enable signal high to trigger toggle: High when htl rollerover and inc is high, lth when inc is low, or during rollover
+	 my_dff second_digit (.i_clk(i_clk),
+								 .i_ena(w_ena2|i_reset),
+								 .i_d(~i_reset&~o_q[4]),
+								 .o_q(o_q[4]));
+								 
+	 assign o_q[7:5] = 3'b000;
 	
 
 	 always @(posedge i_clk) begin	
 		if (i_ena) begin
-			if (i_reset) begin		// Change everything to low at reset
-				r_ro <= 1'b0;
-				o_out <= 1'b0;
-			end else begin
-				r_ro <= (o_q==8'h9);	// ro high during q==8'h10
-				o_out <= r_ro;			// out is ro delayed by one ena signal thus high when q==8'h11
-			end
+			if (i_reset) o_roll <= 1'b0;
+			else o_roll <= (o_q==8'h10&i_inc)|(o_q==8'h01&&~i_inc);			// out is ro delayed by one ena signal thus high when q==8'h11
 		end
 	 end
 	 

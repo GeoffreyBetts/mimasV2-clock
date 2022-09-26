@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <report-views version="2.0" >
  <header>
-  <DateModified>2022-09-13T11:43:43</DateModified>
-  <ModuleName>count_to_60</ModuleName>
+  <DateModified>2022-09-26T19:03:56</DateModified>
+  <ModuleName>count_to_12</ModuleName>
   <SummaryTimeStamp>2022-09-13T11:43:37</SummaryTimeStamp>
-  <SavedFilePath>E:/Xilinx/projects/Clock/iseconfig/count_to_12.xreport</SavedFilePath>
-  <ImplementationReportsDirectory>E:/Xilinx/projects/Clock</ImplementationReportsDirectory>
+  <SavedFilePath>E:/Xilinx/projects/mimasV2-clock/iseconfig/count_to_12.xreport</SavedFilePath>
+  <ImplementationReportsDirectory>E:/Xilinx/projects/mimasV2-clock\</ImplementationReportsDirectory>
   <DateInitialized>2022-09-13T11:43:42</DateInitialized>
   <EnableMessageFiltering>false</EnableMessageFiltering>
  </header>

@@ -10,7 +10,7 @@ User constraints file obtained from product website.
 - [x] Have an alternating am/pm signal when the time rolls over
 - [x] Ability to change the time
 - [ ] Display the time on an output device
-- [ ] Method of using input device to change the time
+- [x] Method of using input device to change the time
 
 ## Hardware
 - Mimas V2 Spartan 6 FPGA Development Board with DDR SDRAM

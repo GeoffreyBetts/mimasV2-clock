@@ -43,11 +43,7 @@ module pulse_gen(
 			o_pulse_vf <= (r_cnt_vf==4'hf-1'b1);
 			o_pulse_f <= (r_cnt_f==13'h1a0b-1'b1);
 			o_pulse_n <= (r_cnt_n==8'h79-1'b1);
-			
-			o_pulse_vf <= (r_cnt_vf==4'h0);
-			o_pulse_f <= (r_cnt_f==13'h0000);
-			o_pulse_n <= (r_cnt_n==8'h00);
-			
+						
 			if (r_cnt_vf==4'hf-1'b1) r_cnt_vf <= 4'h0;
 			else r_cnt_vf <= r_cnt_vf+1'b1;
 			

@@ -26,10 +26,6 @@ module top_module(
 	 input i_val_dec_btn,
 	 input i_sel_inc_btn,
 	 input i_sel_dec_btn,
-    //input i_reset,		// synchronous active-high reset
-    //input i_wr,			// high == write new time / low == run clock
-    //input [1:0] i_sel,	// select which time to change, only can use when (ena == 0)
-    //input [7:0] i_in,	// insert new time
     output o_pm,			// am or pm?
     output [7:0] o_hh,	// hours
     output [7:0] o_mm,	// minutes
@@ -37,13 +33,18 @@ module top_module(
     );
 	 
 	 wire [1:0] w_sel;
-
-	 pulse_gen pulse_gen 	  (.i_clk(i_clk),				// This module generates 'signal' with a frequency of 1 Hz, for 1 clock cycle
+	 
+	 // pulse_gen generates 3 pulses for different functions
+	 // LCD wants a quicker pulse, input wants a quick pulse, and clock wants a 1 second pulse
+	 pulse_gen pulse_gen 	  (.i_clk(i_clk),
 										.i_reset(i_reset_btn),
 										.o_pulse_vf(w_lcd_pulse),
 										.o_pulse_f(w_input_pulse),
 										.o_pulse_n(w_clock_pulse));
-										
+	 
+	 // Time Keeper controls time
+	 // If w_wr is low, will count up in seconds with clock pulse
+	 // If w_wr is high, will increment and decrement with quicker input pulse
 	 clock_control time_keeper 	(.i_clk(i_clk),
 											 .i_reset(i_reset_btn),
 											 .i_sel(w_sel),
@@ -57,8 +58,9 @@ module top_module(
 											 .o_mm(o_mm),
 											 .o_hh(o_hh));
 	
+	 // Button Debouncer contains all the button debouncing modules
 	 input_debounce btn_debouncer (.i_clk(i_clk),
-											 .i_ena(w_input_pulse), //enable once every 8.333 ms (99996 clock pulses)
+											 .i_ena(w_input_pulse),
 											 .i_wr_btn(i_wr_btn),
 											 .i_val_inc_btn(i_val_inc_btn),
 											 .i_val_dec_btn(i_val_dec_btn),
@@ -70,6 +72,9 @@ module top_module(
 											 .o_sel_inc_pulse(w_sel_inc_pulse),
 											 .o_sel_dec_pulse(w_sel_dec_pulse));
 	 
+	 // wr & sel control module
+	 // Toggles wr when button is pushed
+	 // Increases/Decreases sel as respective inputs are recieved 
 	 input_control wr_sel_control (.i_clk(i_clk),
 											 .i_ena(w_input_pulse),
 											 .i_reset(i_reset_btn),

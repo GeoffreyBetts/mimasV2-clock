@@ -18,6 +18,7 @@
          <ClosedNode>/clock_edit E:|Xilinx|projects|mimasV2-clock|clock_edit.v/val_change - count_to_60_updown</ClosedNode>
          <ClosedNode>/count_to_60 E:|Xilinx|projects|Clock|count_to_60.v</ClosedNode>
          <ClosedNode>/count_to_60_updown E:|Xilinx|projects|mimasV2-clock|count_to_60_updown.v</ClosedNode>
+         <ClosedNode>/input_control E:|Xilinx|projects|mimasV2-clock|input_control.v</ClosedNode>
          <ClosedNode>/input_device E:|Xilinx|projects|mimasV2-clock|input_device.v</ClosedNode>
          <ClosedNode>/input_device E:|Xilinx|projects|mimasV2-clock|input_device.v/reset_btn - button_debounce</ClosedNode>
          <ClosedNode>/input_device E:|Xilinx|projects|mimasV2-clock|input_device.v/sel_dec_btn - button_debounce</ClosedNode>
@@ -26,6 +27,8 @@
          <ClosedNode>/input_device E:|Xilinx|projects|mimasV2-clock|input_device.v/val_dec_btn - button_debounce</ClosedNode>
          <ClosedNode>/input_device E:|Xilinx|projects|mimasV2-clock|input_device.v/val_inc_btn - button_debounce</ClosedNode>
          <ClosedNode>/input_device E:|Xilinx|projects|mimasV2-clock|input_device.v/wr_btn - button_debounce</ClosedNode>
+         <ClosedNode>/pulse_to_toggle E:|Xilinx|projects|mimasV2-clock|pulse_to_toggle.v</ClosedNode>
+         <ClosedNode>/sel_control E:|Xilinx|projects|mimasV2-clock|sel_control.v</ClosedNode>
          <ClosedNode>/top_module E:|Xilinx|projects|mimasV2-clock|top_module.v/btn_debouncer - input_debounce</ClosedNode>
          <ClosedNode>/top_module E:|Xilinx|projects|mimasV2-clock|top_module.v/btn_debouncer - input_debounce/reset_btn - button_debounce</ClosedNode>
          <ClosedNode>/top_module E:|Xilinx|projects|mimasV2-clock|top_module.v/btn_debouncer - input_debounce/sel_dec_btn - button_debounce</ClosedNode>
@@ -37,15 +40,19 @@
          <ClosedNode>/top_module E:|Xilinx|projects|mimasV2-clock|top_module.v/clock_editor - clock_edit/val_change - count_to_60_updown</ClosedNode>
          <ClosedNode>/top_module E:|Xilinx|projects|mimasV2-clock|top_module.v/clock_time - clock_counter/hours - count_to_12</ClosedNode>
          <ClosedNode>/top_module E:|Xilinx|projects|mimasV2-clock|top_module.v/clock_time - clock_counter/minutes - count_to_60</ClosedNode>
+         <ClosedNode>/top_module E:|Xilinx|projects|mimasV2-clock|top_module.v/time_keeper - clock_control</ClosedNode>
+         <ClosedNode>/top_module E:|Xilinx|projects|mimasV2-clock|top_module.v/time_keeper - clock_control/time_hh - count_to_12</ClosedNode>
+         <ClosedNode>/top_module E:|Xilinx|projects|mimasV2-clock|top_module.v/wr_sel_control - input_control/sel_control - sel_control</ClosedNode>
+         <ClosedNode>/top_module E:|Xilinx|projects|mimasV2-clock|top_module.v/wr_sel_control - input_control/wr_control - pulse_to_toggle</ClosedNode>
       </ClosedNodes>
       <SelectedItems>
-         <SelectedItem>time_hh - count_to_12 (E:/Xilinx/projects/mimasV2-clock/count_to_12.v)</SelectedItem>
+         <SelectedItem>wr_sel_control - input_control (E:/Xilinx/projects/mimasV2-clock/input_control.v)</SelectedItem>
       </SelectedItems>
       <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
       <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000100000000000000000000000000000000020200000001000000010000006400000173000000020000000000000000000000000200000064ffffffff000000810000000300000002000001730000000100000003000000000000000100000003</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >true</UserChangedColumnWidths>
-      <CurrentItem>time_hh - count_to_12 (E:/Xilinx/projects/mimasV2-clock/count_to_12.v)</CurrentItem>
+      <CurrentItem>wr_sel_control - input_control (E:/Xilinx/projects/mimasV2-clock/input_control.v)</CurrentItem>
    </ItemView>
    <ItemView engineview="SynthesisOnly" sourcetype="DESUT_VERILOG" guiview="Process" >
       <ClosedNodes>
@@ -96,13 +103,13 @@
          <ClosedNode>Design Utilities</ClosedNode>
       </ClosedNodes>
       <SelectedItems>
-         <SelectedItem/>
+         <SelectedItem></SelectedItem>
       </SelectedItems>
       <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
       <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000000000000000000f8000000010000000100000000000000000000000064ffffffff000000810000000000000001000000f80000000100000000</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
-      <CurrentItem/>
+      <CurrentItem></CurrentItem>
    </ItemView>
    <ItemView engineview="BehavioralSim" guiview="Source" compilemode="AutoCompile" >
       <ClosedNodes>
@@ -111,6 +118,7 @@
          <ClosedNode>/button_debounce_tb E:|Xilinx|projects|mimasV2-clock|button_debounce_tb.v</ClosedNode>
          <ClosedNode>/button_debounce_tb E:|Xilinx|projects|mimasV2-clock|button_debounce_tb.v/uut - button_debounce</ClosedNode>
          <ClosedNode>/clock_control E:|Xilinx|projects|mimasV2-clock|clock_control.v</ClosedNode>
+         <ClosedNode>/clock_control_tb E:|Xilinx|projects|mimasV2-clock|clock_control_tb.v</ClosedNode>
          <ClosedNode>/clock_control_tb E:|Xilinx|projects|mimasV2-clock|clock_control_tb.v/uut - clock_control</ClosedNode>
          <ClosedNode>/clock_control_tb E:|Xilinx|projects|mimasV2-clock|clock_control_tb.v/uut - clock_control/time_hh - count_to_12</ClosedNode>
          <ClosedNode>/clock_control_tb E:|Xilinx|projects|mimasV2-clock|clock_control_tb.v/uut - clock_control/time_mm - count_to_60</ClosedNode>
@@ -122,32 +130,39 @@
          <ClosedNode>/clock_counter_tb E:|Xilinx|projects|mimasV2-clock|clock_counter_tb.v/uut - clock_counter/minutes - count_to_60</ClosedNode>
          <ClosedNode>/clock_edit E:|Xilinx|projects|mimasV2-clock|clock_edit.v</ClosedNode>
          <ClosedNode>/count_to_12_tb E:|Xilinx|projects|mimasV2-clock|count_to_12_tb.v</ClosedNode>
+         <ClosedNode>/count_to_12_tb E:|Xilinx|projects|mimasV2-clock|count_to_12_tb.v/uut - count_to_12</ClosedNode>
          <ClosedNode>/count_to_60 E:|Xilinx|projects|Clock|count_to_60.v</ClosedNode>
          <ClosedNode>/count_to_60_tb E:|Xilinx|projects_test|mimasV2-clock-dev|count_to_60_tb.v</ClosedNode>
+         <ClosedNode>/count_to_60_tb E:|Xilinx|projects|mimasV2-clock|count_to_60_tb.v</ClosedNode>
          <ClosedNode>/count_to_60_tb E:|Xilinx|projects|mimasV2-clock|count_to_60_tb.v/uut - count_to_60</ClosedNode>
          <ClosedNode>/count_to_60_updown E:|Xilinx|projects|mimasV2-clock|count_to_60_updown.v</ClosedNode>
-         <ClosedNode>/count_to_60_updown_tb E:|Xilinx|projects|mimasV2-clock|count_to_60_updown_tb.v</ClosedNode>
          <ClosedNode>/count_to_60_updown_tb E:|Xilinx|projects|mimasV2-clock|count_to_60_updown_tb.v/uut - count_to_60_updown</ClosedNode>
+         <ClosedNode>/decade_counter_tb E:|Xilinx|projects|mimasV2-clock|decade_counter_tb.v</ClosedNode>
+         <ClosedNode>/input_control_tb E:|Xilinx|projects|mimasV2-clock|input_control_tb.v</ClosedNode>
+         <ClosedNode>/input_control_tb E:|Xilinx|projects|mimasV2-clock|input_control_tb.v/uut - input_control/sel_control - sel_control</ClosedNode>
+         <ClosedNode>/input_control_tb E:|Xilinx|projects|mimasV2-clock|input_control_tb.v/uut - input_control/wr_control - pulse_to_toggle</ClosedNode>
          <ClosedNode>/input_debounce_tb E:|Xilinx|projects|mimasV2-clock|input_debounce_tb.v</ClosedNode>
          <ClosedNode>/input_device E:|Xilinx|projects|mimasV2-clock|input_device.v</ClosedNode>
-         <ClosedNode>/input_device_tb E:|Xilinx|projects|mimasV2-clock|input_device_tb.v</ClosedNode>
          <ClosedNode>/input_device_tb E:|Xilinx|projects|mimasV2-clock|input_device_tb.v/uut - input_device</ClosedNode>
-         <ClosedNode>/one_hertz_gen_tb E:|Xilinx|projects|mimasV2-clock|one_hertz_gen_tb.v</ClosedNode>
          <ClosedNode>/pulse_gen_tb E:|Xilinx|projects|mimasV2-clock|pulse_gen_tb.v</ClosedNode>
+         <ClosedNode>/pulse_to_toggle E:|Xilinx|projects|mimasV2-clock|pulse_to_toggle.v</ClosedNode>
+         <ClosedNode>/sel_control E:|Xilinx|projects|mimasV2-clock|sel_control.v</ClosedNode>
+         <ClosedNode>/sel_control_tb E:|Xilinx|projects|mimasV2-clock|sel_control_tb.v</ClosedNode>
          <ClosedNode>/top_module E:|Xilinx|projects|mimasV2-clock|top_module.v</ClosedNode>
          <ClosedNode>/top_module_tb E:|Xilinx|projects|mimasV2-clock|top_module_tb.v</ClosedNode>
          <ClosedNode>/top_module_tb E:|Xilinx|projects|mimasV2-clock|top_module_tb.v/uut - top_module/btn_debouncer - input_debounce</ClosedNode>
          <ClosedNode>/top_module_tb E:|Xilinx|projects|mimasV2-clock|top_module_tb.v/uut - top_module/clock_editor - clock_edit</ClosedNode>
          <ClosedNode>/top_module_tb E:|Xilinx|projects|mimasV2-clock|top_module_tb.v/uut - top_module/clock_time - clock_counter</ClosedNode>
+         <ClosedNode>/top_module_tb E:|Xilinx|projects|mimasV2-clock|top_module_tb.v/uut - top_module/time_keeper - clock_control</ClosedNode>
       </ClosedNodes>
       <SelectedItems>
-         <SelectedItem>clock_control_tb (E:/Xilinx/projects/mimasV2-clock/clock_control_tb.v)</SelectedItem>
+         <SelectedItem>top_module_tb (E:/Xilinx/projects/mimasV2-clock/top_module_tb.v)</SelectedItem>
       </SelectedItems>
       <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
-      <ViewHeaderState orientation="horizontal" >000000ff0000000000000001000000010000000000000000000000000000000002020000000100000001000000640000015a000000020000000000000000000000000200000064ffffffff0000008100000003000000020000015a0000000100000003000000000000000100000003</ViewHeaderState>
+      <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000100000000000000000000000000000000020200000001000000010000006400000134000000020000000000000000000000000200000064ffffffff000000810000000300000002000001340000000100000003000000000000000100000003</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >true</UserChangedColumnWidths>
-      <CurrentItem>clock_control_tb (E:/Xilinx/projects/mimasV2-clock/clock_control_tb.v)</CurrentItem>
+      <CurrentItem>top_module_tb (E:/Xilinx/projects/mimasV2-clock/top_module_tb.v)</CurrentItem>
    </ItemView>
    <ItemView engineview="BehavioralSim" sourcetype="" guiview="Process" >
       <ClosedNodes>
@@ -155,26 +170,26 @@
          <ClosedNode>Design Utilities/Compile HDL Simulation Libraries</ClosedNode>
       </ClosedNodes>
       <SelectedItems>
-         <SelectedItem/>
+         <SelectedItem></SelectedItem>
       </SelectedItems>
       <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
       <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000000000000000000f8000000010000000100000000000000000000000064ffffffff000000810000000000000001000000f80000000100000000</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
-      <CurrentItem/>
+      <CurrentItem></CurrentItem>
    </ItemView>
    <ItemView engineview="BehavioralSim" sourcetype="DESUT_VERILOG" guiview="Process" >
       <ClosedNodes>
          <ClosedNodesVersion>1</ClosedNodesVersion>
       </ClosedNodes>
       <SelectedItems>
-         <SelectedItem/>
+         <SelectedItem>Simulate Behavioral Model</SelectedItem>
       </SelectedItems>
       <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
       <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000000000000000000f8000000010000000100000000000000000000000064ffffffff000000810000000000000001000000f80000000100000000</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
-      <CurrentItem/>
+      <CurrentItem>Simulate Behavioral Model</CurrentItem>
    </ItemView>
    <SourceProcessView>000000ff00000000000000020000011b0000011b01000000050100000002</SourceProcessView>
    <CurrentView>Implementation</CurrentView>

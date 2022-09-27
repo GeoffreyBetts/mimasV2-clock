@@ -32,12 +32,6 @@ module top_module_tb;
 	reg i_val_dec_btn;
 	reg i_sel_inc_btn;
 	reg i_sel_dec_btn;
-	
-	wire w_wr;
-	wire w_clock_pulse;
-	wire w_input_pulse;
-	wire [1:0] w_sel;
-	wire [7:0] w_val;
 
 	// Outputs
 	wire o_pm;
@@ -57,12 +51,7 @@ module top_module_tb;
 		.o_pm(o_pm), 
 		.o_hh(o_hh), 
 		.o_mm(o_mm), 
-		.o_ss(o_ss),
-		.w_wr(w_wr),
-		.w_clock_pulse(w_clock_pulse),
-		.w_input_pulse(w_input_pulse),
-		.w_sel(w_sel),
-		.w_val(w_val)
+		.o_ss(o_ss)
 	);
 	
 	// Initialise 12 MHz clock (41.665*2 period)

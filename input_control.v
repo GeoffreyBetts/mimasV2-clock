@@ -29,12 +29,18 @@ module input_control(
 	 output [1:0] o_sel_val
     );
 
+	 // Controls wr function
+	 // Reset triggers wr to low,
+	 // Otherwise, pulse flips the output (Like a push button)
 	 pulse_to_toggle wr_control (.i_clk(i_clk),
 										  .i_ena(i_ena),
 										  .i_reset(i_reset),
 										  .i_pulse(i_wr_pulse),
 										  .o_toggle(o_wr_toggle));
-										  
+		
+	 // Controls sel function
+	 // Reset brings sel to 0
+	 // Otherwise, inc and dec pulse increases and decreases sel respectively
 	 sel_control sel_control    (.i_clk(i_clk),
 										  .i_ena(i_ena),
 										  .i_reset(i_reset),

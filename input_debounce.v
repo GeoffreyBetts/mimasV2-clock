@@ -21,26 +21,17 @@
 module input_debounce(
     input i_clk,
 	 input i_ena,
-	 //input i_reset_btn,
     input i_wr_btn,
     input i_val_inc_btn,
     input i_val_dec_btn,
     input i_sel_inc_btn,
     input i_sel_dec_btn,
-	 //output o_reset,
 	 output o_wr_pulse,
 	 output o_val_inc_pulse,
 	 output o_val_dec_pulse,
 	 output o_sel_inc_pulse,
 	 output o_sel_dec_pulse
     );
-	 
-	 /*
-	 button_debounce reset_btn   (.i_clk(i_clk),				//Hit reset button, sends reset signal to device
-											.i_ena(i_ena|i_reset_btn),
-											.i_btn(i_reset_btn),
-											.o_pulse(o_reset));
-	 */
 	
 	 button_debounce wr_btn	 	  (.i_clk(i_clk),
 											.i_ena(i_ena),

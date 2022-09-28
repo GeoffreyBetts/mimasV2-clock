@@ -42,18 +42,16 @@
          <ClosedNode>/top_module E:|Xilinx|projects|mimasV2-clock|top_module.v/clock_time - clock_counter/minutes - count_to_60</ClosedNode>
          <ClosedNode>/top_module E:|Xilinx|projects|mimasV2-clock|top_module.v/time_keeper - clock_control</ClosedNode>
          <ClosedNode>/top_module E:|Xilinx|projects|mimasV2-clock|top_module.v/time_keeper - clock_control/time_hh - count_to_12</ClosedNode>
-         <ClosedNode>/top_module E:|Xilinx|projects|mimasV2-clock|top_module.v/wr_sel_control - input_control</ClosedNode>
-         <ClosedNode>/top_module E:|Xilinx|projects|mimasV2-clock|top_module.v/wr_sel_control - input_control/sel_control - sel_control</ClosedNode>
          <ClosedNode>/top_module E:|Xilinx|projects|mimasV2-clock|top_module.v/wr_sel_control - input_control/wr_control - pulse_to_toggle</ClosedNode>
       </ClosedNodes>
       <SelectedItems>
-         <SelectedItem>time_keeper - clock_control (E:/Xilinx/projects/mimasV2-clock/clock_control.v)</SelectedItem>
+         <SelectedItem>lcd_driver - hd44780_driver (E:/Xilinx/projects/mimasV2-clock/hd44780_driver.v)</SelectedItem>
       </SelectedItems>
       <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
-      <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000100000000000000000000000000000000020200000001000000010000006400000173000000020000000000000000000000000200000064ffffffff000000810000000300000002000001730000000100000003000000000000000100000003</ViewHeaderState>
+      <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000202000000010000000100000064000001ce000000020000000000000000000000000200000064ffffffff000000810000000300000002000001ce0000000100000003000000000000000100000003</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >true</UserChangedColumnWidths>
-      <CurrentItem>time_keeper - clock_control (E:/Xilinx/projects/mimasV2-clock/clock_control.v)</CurrentItem>
+      <CurrentItem>lcd_driver - hd44780_driver (E:/Xilinx/projects/mimasV2-clock/hd44780_driver.v)</CurrentItem>
    </ItemView>
    <ItemView engineview="SynthesisOnly" sourcetype="DESUT_VERILOG" guiview="Process" >
       <ClosedNodes>
@@ -139,6 +137,7 @@
          <ClosedNode>/count_to_60_updown E:|Xilinx|projects|mimasV2-clock|count_to_60_updown.v</ClosedNode>
          <ClosedNode>/count_to_60_updown_tb E:|Xilinx|projects|mimasV2-clock|count_to_60_updown_tb.v/uut - count_to_60_updown</ClosedNode>
          <ClosedNode>/decade_counter_tb E:|Xilinx|projects|mimasV2-clock|decade_counter_tb.v</ClosedNode>
+         <ClosedNode>/hd44780_write_operation_tb E:|Xilinx|projects|mimasV2-clock|hd44780_write_operation_tb.v</ClosedNode>
          <ClosedNode>/input_control_tb E:|Xilinx|projects|mimasV2-clock|input_control_tb.v</ClosedNode>
          <ClosedNode>/input_control_tb E:|Xilinx|projects|mimasV2-clock|input_control_tb.v/uut - input_control/sel_control - sel_control</ClosedNode>
          <ClosedNode>/input_control_tb E:|Xilinx|projects|mimasV2-clock|input_control_tb.v/uut - input_control/wr_control - pulse_to_toggle</ClosedNode>
@@ -155,15 +154,16 @@
          <ClosedNode>/top_module_tb E:|Xilinx|projects|mimasV2-clock|top_module_tb.v/uut - top_module/clock_editor - clock_edit</ClosedNode>
          <ClosedNode>/top_module_tb E:|Xilinx|projects|mimasV2-clock|top_module_tb.v/uut - top_module/clock_time - clock_counter</ClosedNode>
          <ClosedNode>/top_module_tb E:|Xilinx|projects|mimasV2-clock|top_module_tb.v/uut - top_module/time_keeper - clock_control</ClosedNode>
+         <ClosedNode>/top_module_tb E:|Xilinx|projects|mimasV2-clock|top_module_tb.v/uut - top_module/wr_sel_control - input_control</ClosedNode>
       </ClosedNodes>
       <SelectedItems>
-         <SelectedItem>hd44780_write_operation_tb (E:/Xilinx/projects/mimasV2-clock/hd44780_write_operation_tb.v)</SelectedItem>
+         <SelectedItem>top_module_tb (E:/Xilinx/projects/mimasV2-clock/top_module_tb.v)</SelectedItem>
       </SelectedItems>
       <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
-      <ViewHeaderState orientation="horizontal" >000000ff0000000000000001000000010000000000000000000000000000000002020000000100000001000000640000018f000000020000000000000000000000000200000064ffffffff0000008100000003000000020000018f0000000100000003000000000000000100000003</ViewHeaderState>
+      <ViewHeaderState orientation="horizontal" >000000ff0000000000000001000000010000000000000000000000000000000002020000000100000001000000640000017e000000020000000000000000000000000200000064ffffffff0000008100000003000000020000017e0000000100000003000000000000000100000003</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >true</UserChangedColumnWidths>
-      <CurrentItem>hd44780_write_operation_tb (E:/Xilinx/projects/mimasV2-clock/hd44780_write_operation_tb.v)</CurrentItem>
+      <CurrentItem>top_module_tb (E:/Xilinx/projects/mimasV2-clock/top_module_tb.v)</CurrentItem>
    </ItemView>
    <ItemView engineview="BehavioralSim" sourcetype="" guiview="Process" >
       <ClosedNodes>
@@ -171,26 +171,26 @@
          <ClosedNode>Design Utilities/Compile HDL Simulation Libraries</ClosedNode>
       </ClosedNodes>
       <SelectedItems>
-         <SelectedItem></SelectedItem>
+         <SelectedItem/>
       </SelectedItems>
       <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
       <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000000000000000000f8000000010000000100000000000000000000000064ffffffff000000810000000000000001000000f80000000100000000</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
-      <CurrentItem></CurrentItem>
+      <CurrentItem/>
    </ItemView>
    <ItemView engineview="BehavioralSim" sourcetype="DESUT_VERILOG" guiview="Process" >
       <ClosedNodes>
          <ClosedNodesVersion>1</ClosedNodesVersion>
       </ClosedNodes>
       <SelectedItems>
-         <SelectedItem></SelectedItem>
+         <SelectedItem>Simulate Behavioral Model</SelectedItem>
       </SelectedItems>
       <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
       <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000000000000000000f8000000010000000100000000000000000000000064ffffffff000000810000000000000001000000f80000000100000000</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
-      <CurrentItem></CurrentItem>
+      <CurrentItem>Simulate Behavioral Model</CurrentItem>
    </ItemView>
    <SourceProcessView>000000ff00000000000000020000011b0000011b01000000050100000002</SourceProcessView>
    <CurrentView>Implementation</CurrentView>

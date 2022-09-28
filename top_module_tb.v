@@ -34,10 +34,16 @@ module top_module_tb;
 	reg i_sel_dec_btn;
 
 	// Outputs
-	wire o_pm;
-	wire [7:0] o_hh;
-	wire [7:0] o_mm;
-	wire [7:0] o_ss;
+	wire o_rs;
+	wire o_e;
+	wire [7:0] o_d;
+	
+	wire w_pm;
+	wire [7:0] w_hh;
+	wire [7:0] w_mm;
+	wire [7:0] w_ss;
+	
+	wire w_update_pulse;
 
 	// Instantiate the Unit Under Test (UUT)
 	top_module uut (
@@ -47,11 +53,15 @@ module top_module_tb;
 		.i_val_inc_btn(i_val_inc_btn), 
 		.i_val_dec_btn(i_val_dec_btn), 
 		.i_sel_inc_btn(i_sel_inc_btn), 
-		.i_sel_dec_btn(i_sel_dec_btn), 
-		.o_pm(o_pm), 
-		.o_hh(o_hh), 
-		.o_mm(o_mm), 
-		.o_ss(o_ss)
+		.i_sel_dec_btn(i_sel_dec_btn),
+		.o_rs(o_rs),
+		.o_e(o_e),
+		.o_d(o_d),
+		.w_pm(w_pm), 
+		.w_hh(w_hh), 
+		.w_mm(w_mm), 
+		.w_ss(w_ss),
+		.w_update_pulse(w_update_pulse)
 	);
 	
 	// Initialise 12 MHz clock (41.665*2 period)

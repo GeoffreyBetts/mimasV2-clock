@@ -26,13 +26,20 @@ module top_module(
 	 input i_val_dec_btn,
 	 input i_sel_inc_btn,
 	 input i_sel_dec_btn,
-    output o_pm,			// am or pm?
-    output [7:0] o_hh,	// hours
-    output [7:0] o_mm,	// minutes
-    output [7:0] o_ss	// seconds
+	 output o_rs,
+	 output o_e,
+	 output [7:0] o_d,
+    output w_pm,			// am or pm?
+    output [7:0] w_hh,	// hours
+    output [7:0] w_mm,	// minutes
+    output [7:0] w_ss,	// seconds
+	 
+	 output w_update_pulse
     );
 	 
 	 wire [1:0] w_sel;
+	 //wire w_pm;
+	 //wire [7:0] w_hh, w_mm, w_ss;
 	 
 	 // pulse_gen generates 3 pulses for different functions
 	 // LCD wants a quicker pulse, input wants a quick pulse, and clock wants a 1 second pulse
@@ -53,10 +60,10 @@ module top_module(
 											 .i_inc_pulse(w_val_inc_pulse),
 											 .i_dec_pulse(w_val_dec_pulse),
 											 .i_wr(w_wr),
-											 .o_pm(o_pm),
-											 .o_ss(o_ss),
-											 .o_mm(o_mm),
-											 .o_hh(o_hh));
+											 .o_pm(w_pm),
+											 .o_ss(w_ss),
+											 .o_mm(w_mm),
+											 .o_hh(w_hh));
 	
 	 // Button Debouncer contains all the button debouncing modules
 	 input_debounce btn_debouncer (.i_clk(i_clk),
@@ -83,5 +90,19 @@ module top_module(
 											 .i_sel_dec_pulse(w_sel_dec_pulse),
 											 .o_wr_toggle(w_wr),
 											 .o_sel_val(w_sel));
+											 
+	 hd44780_driver lcd_driver 	(.i_clk(i_clk),
+											 .i_ena(w_lcd_pulse),
+											 .i_reset(i_reset_btn),
+											 .i_clock_pulse(w_clock_pulse),
+											 .i_input_pulse(w_input_pulse),
+											 .i_wr(w_wr),
+											 .i_pm(w_pm),
+											 .i_hh(w_hh),
+											 .i_mm(w_mm),
+											 .i_ss(w_ss),
+											 .o_rs(o_rs),
+											 .o_e(o_e),
+											 .o_d(o_d));
 									  
 endmodule

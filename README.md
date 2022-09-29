@@ -9,7 +9,7 @@ User constraints file obtained from product website.
 - [x] Count a clock signal in a hh:mm:ss format
 - [x] Have an alternating am/pm signal when the time rolls over
 - [x] Ability to change the time
-- [ ] Display the time on an output device
+- [x] Display the time on an output device
 - [x] Method of using input device to change the time
 - [ ] Implement HDL on FPGA
 

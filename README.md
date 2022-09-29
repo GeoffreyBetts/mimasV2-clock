@@ -11,6 +11,7 @@ User constraints file obtained from product website.
 - [x] Ability to change the time
 - [ ] Display the time on an output device
 - [x] Method of using input device to change the time
+- [ ] Implement HDL on FPGA
 
 ## Hardware
 - Mimas V2 Spartan 6 FPGA Development Board with DDR SDRAM

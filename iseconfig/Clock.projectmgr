@@ -42,16 +42,17 @@
          <ClosedNode>/top_module E:|Xilinx|projects|mimasV2-clock|top_module.v/clock_time - clock_counter/minutes - count_to_60</ClosedNode>
          <ClosedNode>/top_module E:|Xilinx|projects|mimasV2-clock|top_module.v/time_keeper - clock_control</ClosedNode>
          <ClosedNode>/top_module E:|Xilinx|projects|mimasV2-clock|top_module.v/time_keeper - clock_control/time_hh - count_to_12</ClosedNode>
+         <ClosedNode>/top_module E:|Xilinx|projects|mimasV2-clock|top_module.v/wr_sel_control - input_control</ClosedNode>
          <ClosedNode>/top_module E:|Xilinx|projects|mimasV2-clock|top_module.v/wr_sel_control - input_control/wr_control - pulse_to_toggle</ClosedNode>
       </ClosedNodes>
       <SelectedItems>
-         <SelectedItem>lcd_driver - hd44780_driver (E:/Xilinx/projects/mimasV2-clock/hd44780_driver.v)</SelectedItem>
+         <SelectedItem>d_output - hd44780_data_output (E:/Xilinx/projects/mimasV2-clock/hd44780_data_output.v)</SelectedItem>
       </SelectedItems>
       <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
       <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000202000000010000000100000064000001ce000000020000000000000000000000000200000064ffffffff000000810000000300000002000001ce0000000100000003000000000000000100000003</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >true</UserChangedColumnWidths>
-      <CurrentItem>lcd_driver - hd44780_driver (E:/Xilinx/projects/mimasV2-clock/hd44780_driver.v)</CurrentItem>
+      <CurrentItem>d_output - hd44780_data_output (E:/Xilinx/projects/mimasV2-clock/hd44780_data_output.v)</CurrentItem>
    </ItemView>
    <ItemView engineview="SynthesisOnly" sourcetype="DESUT_VERILOG" guiview="Process" >
       <ClosedNodes>
@@ -102,13 +103,13 @@
          <ClosedNode>Design Utilities</ClosedNode>
       </ClosedNodes>
       <SelectedItems>
-         <SelectedItem></SelectedItem>
+         <SelectedItem/>
       </SelectedItems>
       <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
       <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000000000000000000f8000000010000000100000000000000000000000064ffffffff000000810000000000000001000000f80000000100000000</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
-      <CurrentItem></CurrentItem>
+      <CurrentItem/>
    </ItemView>
    <ItemView engineview="BehavioralSim" guiview="Source" compilemode="AutoCompile" >
       <ClosedNodes>
@@ -157,13 +158,13 @@
          <ClosedNode>/top_module_tb E:|Xilinx|projects|mimasV2-clock|top_module_tb.v/uut - top_module/wr_sel_control - input_control</ClosedNode>
       </ClosedNodes>
       <SelectedItems>
-         <SelectedItem>top_module_tb (E:/Xilinx/projects/mimasV2-clock/top_module_tb.v)</SelectedItem>
+         <SelectedItem>pulse_gen_tb (E:/Xilinx/projects/mimasV2-clock/pulse_gen_tb.v)</SelectedItem>
       </SelectedItems>
       <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
       <ViewHeaderState orientation="horizontal" >000000ff0000000000000001000000010000000000000000000000000000000002020000000100000001000000640000017e000000020000000000000000000000000200000064ffffffff0000008100000003000000020000017e0000000100000003000000000000000100000003</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >true</UserChangedColumnWidths>
-      <CurrentItem>top_module_tb (E:/Xilinx/projects/mimasV2-clock/top_module_tb.v)</CurrentItem>
+      <CurrentItem>pulse_gen_tb (E:/Xilinx/projects/mimasV2-clock/pulse_gen_tb.v)</CurrentItem>
    </ItemView>
    <ItemView engineview="BehavioralSim" sourcetype="" guiview="Process" >
       <ClosedNodes>

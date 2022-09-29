@@ -99,28 +99,106 @@ module top_module_tb;
 		
 		#1500000000;  // 1.5 seconds
 		
+		// Change to mm
+		
 		i_sel_inc_btn = 1'b1;
 		#60000000;
 		i_sel_inc_btn = 1'b0;	
 
-		#1500000000;  // 1.5 seconds
+		#200000000;  // 0.2 seconds
 		
 		i_val_inc_btn = 1'b1;
 		#60000000;
 		i_val_inc_btn = 1'b0;
 		
-		#1500000000;  // 1.5 seconds
+		#200000000;  // 0.2 seconds
 		
+		// Change to hh
 		i_sel_inc_btn = 1'b1;
 		#60000000; 
 		i_sel_inc_btn = 1'b0;	
 
-		#1500000000;  // 1.5 seconds
+		#200000000;  // 0.2 seconds
 		
 		i_val_dec_btn = 1'b1;
 		#60000000; 
 		i_val_dec_btn = 1'b0;
 		
+		// Change to pm
+		i_sel_inc_btn = 1'b1;
+		#60000000; 
+		i_sel_inc_btn = 1'b0;	
+
+		#200000000;  // 0.2 seconds
+		
+		i_val_dec_btn = 1'b1;
+		#60000000; 
+		i_val_dec_btn = 1'b0;
+		
+		#200000000;  // 0.2 seconds
+		
+		i_val_inc_btn = 1'b1;
+		#60000000;
+		i_val_inc_btn = 1'b0;
+		
+		#200000000;  // 0.2 seconds
+		
+		i_val_inc_btn = 1'b1;
+		#60000000;
+		i_val_inc_btn = 1'b0;
+		
+		// Change to ss
+		i_sel_inc_btn = 1'b1;
+		#60000000; 
+		i_sel_inc_btn = 1'b0;
+		
+		#200000000;  // 0.2 seconds
+		
+		i_val_dec_btn = 1'b1;
+		#60000000; 
+		i_val_dec_btn = 1'b0;
+		
+		#200000000;  // 0.2 seconds
+		
+		i_val_dec_btn = 1'b1;
+		#60000000; 
+		i_val_dec_btn = 1'b0;
+		
+		#200000000;  // 0.2 seconds
+		
+		i_val_dec_btn = 1'b1;
+		#60000000; 
+		i_val_dec_btn = 1'b0;
+		
+		#200000000;  // 0.2 seconds
+		
+		i_val_dec_btn = 1'b1;
+		#60000000; 
+		i_val_dec_btn = 1'b0;
+		
+		// Change to mm
+		
+		i_sel_inc_btn = 1'b1;
+		#60000000;
+		i_sel_inc_btn = 1'b0;	
+
+		#200000000;  // 0.2 seconds
+		
+		i_val_dec_btn = 1'b1;
+		#60000000; 
+		i_val_dec_btn = 1'b0;
+		
+		#200000000;  // 0.2 seconds
+		
+		i_val_dec_btn = 1'b1;
+		#60000000; 
+		i_val_dec_btn = 1'b0;
+		
+		// Exit write mode
+		
+		i_wr_btn = 1'b1;
+		#60000000;// 60 ms for button press
+		i_wr_btn = 1'b0;
 	end
       
 endmodule

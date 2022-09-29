@@ -57,10 +57,8 @@ module count_to_12(
 	
 
 	 always @(posedge i_clk) begin	
-		if (i_ena) begin
-			if (i_reset) o_roll <= 1'b0;
-			else o_roll <= (o_q==8'h10&i_inc)|(o_q==8'h01&&~i_inc);			// out is ro delayed by one ena signal thus high when q==8'h11
-		end
+		if (i_reset) o_roll <= 1'b0;
+		else o_roll <= (o_q==8'h11&i_inc)|(o_q==8'h00&&~i_inc);			// out is ro delayed by one ena signal thus high when q==8'h11
 	 end
 	 
 endmodule

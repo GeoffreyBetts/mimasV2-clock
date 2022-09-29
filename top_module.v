@@ -28,18 +28,12 @@ module top_module(
 	 input i_sel_dec_btn,
 	 output o_rs,
 	 output o_e,
-	 output [7:0] o_d,
-    output w_pm,			// am or pm?
-    output [7:0] w_hh,	// hours
-    output [7:0] w_mm,	// minutes
-    output [7:0] w_ss,	// seconds
-	 
-	 output w_update_pulse
+	 output [7:0] o_d
     );
 	 
 	 wire [1:0] w_sel;
-	 //wire w_pm;
-	 //wire [7:0] w_hh, w_mm, w_ss;
+	 wire w_pm;
+	 wire [7:0] w_hh, w_mm, w_ss;
 	 
 	 // pulse_gen generates 3 pulses for different functions
 	 // LCD wants a quicker pulse, input wants a quick pulse, and clock wants a 1 second pulse
@@ -96,6 +90,8 @@ module top_module(
 											 .i_reset(i_reset_btn),
 											 .i_clock_pulse(w_clock_pulse),
 											 .i_input_pulse(w_input_pulse),
+											 .i_inc_pulse(w_val_inc_pulse),
+											 .i_dec_pulse(w_val_dec_pulse),
 											 .i_wr(w_wr),
 											 .i_pm(w_pm),
 											 .i_hh(w_hh),

@@ -27,7 +27,7 @@ module hd44780_write_operation(
     output reg o_rs,
     output reg o_e
     );
-	 reg r_cnt;
+	 reg [1:0] r_cnt;
 	 
 	 // If reset reset values to 0
 	 // If i_ena is high, start outputting signals to drive lcd
@@ -36,17 +36,17 @@ module hd44780_write_operation(
 	 always @(posedge i_clk) begin
 		if (i_reset) begin
 			o_e <= 1'b0;
-			r_cnt <= 1'b0;
+			r_cnt <= 2'b0;
 		end else begin
 			if (i_ena&i_e_trigger) begin
 				o_rs <= i_data;
 				o_e <= 1'b1;
-				r_cnt <= 1'b0;
+				r_cnt <= 2'b0;
 			end
 		
 			if (o_e) begin
 				r_cnt <= r_cnt + 1'b1;
-				o_e <= ~(r_cnt==1'b1);
+				o_e <= ~(r_cnt==2'b10);
 			end
 		end
 	 end

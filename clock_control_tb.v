@@ -40,7 +40,7 @@ module clock_control_tb;
 	wire [7:0] o_hh;
 	wire [7:0] o_mm;
 	wire [7:0] o_ss;
-
+	
 	// Instantiate the Unit Under Test (UUT)
 	clock_control uut (
 		.i_clk(i_clk), 
@@ -57,30 +57,35 @@ module clock_control_tb;
 		.o_ss(o_ss)
 	);
 	
+	
 	// Generate clock with a 4ns period
-	always #2 i_clk = ~i_clk;
+	always #1 i_clk = ~i_clk;
 	
 	// Slow pulse with 20 ns period
+	
 	always begin 
-		#1;
+		#4;
 		i_pulse_n = 1;
 		#2;
 		i_pulse_n = 0;
-		#17;
+		#14;
 	end
 	
+	
 	// Fast pulse with 10 ns period
+	
 	always begin
-		#1;
+		#0;
 		i_pulse_f = 1;
-		#4;
+		#2;
 		i_pulse_f = 0;
-		#5;
-	end		
+		#8;
+	end	
+	
 
 	initial begin
 		// Initialize Inputs
-		i_clk = 0;
+		i_clk = 1;
 		i_reset = 0;
 		i_sel = 0;
 		i_pulse_f = 0;
@@ -151,7 +156,32 @@ module clock_control_tb;
 		i_inc_pulse = 0;
 		#1000;
 		i_dec_pulse = 0;
-		#100;				
+		#100;	
+
+		// Test how rollover works from write to read
+		
+		i_sel = 2'h2;
+		#100;
+		i_inc_pulse = 1;
+		#30;
+		i_inc_pulse = 0;
+		
+		i_sel = 2'h1;
+		#100;
+		i_dec_pulse = 1;
+		#210;
+		i_dec_pulse = 0;
+		
+		i_sel = 2'h0;
+		#100;
+		i_inc_pulse = 1;
+		#190;
+		i_inc_pulse = 0;
+		
+		#200;
+		i_wr = 0;
+		
+		#100;
 	end
       
 endmodule

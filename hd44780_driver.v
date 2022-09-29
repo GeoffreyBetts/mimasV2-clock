@@ -24,6 +24,8 @@ module hd44780_driver(
 	 input i_reset,
     input i_clock_pulse,
     input i_input_pulse,
+	 input i_inc_pulse,
+	 input i_dec_pulse,
     input i_wr,
     input i_pm,
     input [7:0] i_hh,
@@ -34,17 +36,23 @@ module hd44780_driver(
     output [7:0] o_d
     );
 	 
-	 wire w_update_pulse, w_lcd_data;
+	 wire w_update_pulse, w_lcd_data, w_e_trigger;
 	 wire [2:0] w_lcd_sel;
 	 wire [3:0] w_lcd_val;
 	 
+	 // Generates a pulse which starts the fsm
+	 // Pulse is generated when the time gets updated
+	 // Either when wr is low & every second, or wr is high and an input is recieved
 	 hd44780_update_pulse lcd_pulse_gen   (.i_clk(i_clk),
 														.i_ena(i_ena),
 														.i_clock_pulse(i_clock_pulse),
 														.i_input_pulse(i_input_pulse),
+														.i_inc_pulse(i_inc_pulse),
+														.i_dec_pulse(i_dec_pulse),
 														.i_wr(i_wr),
 														.o_update_pulse(w_update_pulse));
-												
+	 
+	 // Controls the outputs with a fsm
 	 hd44780_control control_fsm	  		  (.i_clk(i_clk),
 														.i_ena(i_ena),
 														.i_reset(i_reset),
@@ -54,16 +62,22 @@ module hd44780_driver(
 														.i_mm(i_mm),
 														.i_ss(i_ss),
 														.o_data(w_lcd_data),
+														.o_e_trigger(w_e_trigger),
 														.o_sel(w_lcd_sel),
 														.o_val(w_lcd_val));
-												
+	 
+	 // Controls rs and e output to lcd
+	 // Controlled by fsm inputs
 	 hd44780_write_operation rs_e_output  (.i_clk(i_clk),
 														.i_ena(i_ena),
 														.i_reset(i_reset),
 														.i_data(w_lcd_data),
+														.i_e_trigger(w_e_trigger),
 														.o_rs(o_rs),
 														.o_e(o_e));
-														
+	
+	 // Controls the databus output to lcd
+	 // Controlled by fsm inputs
 	 hd44780_data_output d_output			  (.i_clk(i_clk),
 														.i_ena(i_ena),
 														.i_data(w_lcd_data),

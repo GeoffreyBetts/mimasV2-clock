@@ -27,8 +27,7 @@ module hd44780_data_output(
     output reg [7:0] o_q	// Data output for driver
     );
 	 
-	 // If sel==2'h3, output either P or A depending on value
-	 // Else, output 8'h3X where X==i_d: This is what the driver needs to show a number
+
 	 always @(posedge i_clk) begin
 		if (i_ena) begin
 			if (i_data) begin

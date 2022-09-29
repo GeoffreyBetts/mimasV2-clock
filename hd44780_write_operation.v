@@ -23,6 +23,7 @@ module hd44780_write_operation(
     input i_ena,
 	 input i_reset,
 	 input i_data,
+	 input i_e_trigger,
     output reg o_rs,
     output reg o_e
     );
@@ -37,7 +38,7 @@ module hd44780_write_operation(
 			o_e <= 1'b0;
 			r_cnt <= 1'b0;
 		end else begin
-			if (i_ena) begin
+			if (i_ena&i_e_trigger) begin
 				o_rs <= i_data;
 				o_e <= 1'b1;
 				r_cnt <= 1'b0;

@@ -28,7 +28,7 @@ module pulse_gen(
 	 
 	 reg [3:0] r_cnt_vf = 4'h0;			// f
 	 reg [12:0] r_cnt_f = 13'h0000;		// 1aob
-	 reg [7:0] r_cnt_n = 8'h00;			// 79
+	 reg [6:0] r_cnt_n = 8'h00;			// 79
 	 
 	 always @(posedge i_clk) begin
 		if (i_reset) begin							// Reset everything to 0 on reset
@@ -37,12 +37,12 @@ module pulse_gen(
 			o_pulse_n <= 1'b0;
 			r_cnt_vf <= 4'h0;
 			r_cnt_f <= 13'h0000;
-			r_cnt_n <= 8'h00;
+			r_cnt_n <= 7'h00;
 		end else begin										// Generate a pulse for one clock cycle every 12000000 clock cycles (d12000000==hb71b00)
 
 			o_pulse_vf <= (r_cnt_vf==4'hf-1'b1);
 			o_pulse_f <= (r_cnt_f==13'h1a0b-1'b1);
-			o_pulse_n <= (r_cnt_n==8'h79-1'b1);
+			o_pulse_n <= (r_cnt_n==7'h79-1'b1);
 						
 			if (r_cnt_vf==4'hf-1'b1) r_cnt_vf <= 4'h0;
 			else r_cnt_vf <= r_cnt_vf+1'b1;
@@ -50,7 +50,7 @@ module pulse_gen(
 			if (r_cnt_f==16'h1a0b-1'b1) r_cnt_f <= 4'h0;
 			else r_cnt_f <= r_cnt_f+o_pulse_vf;
 			
-			if (r_cnt_n==8'h79-1'b1) r_cnt_n <= 4'h0;
+			if (r_cnt_n==7'h79-1'b1) r_cnt_n <= 4'h0;
 			else r_cnt_n <= r_cnt_n+o_pulse_f;
 			
 		end

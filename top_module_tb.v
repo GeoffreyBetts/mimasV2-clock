@@ -26,7 +26,7 @@ module top_module_tb;
 
 	// Inputs
 	reg i_clk;
-	reg i_reset_n;
+	reg i_reset_btn;
 	reg i_wr_btn;
 	reg i_val_inc_btn;
 	reg i_val_dec_btn;
@@ -37,12 +37,14 @@ module top_module_tb;
 	wire o_rs;
 	wire o_e;
 	wire [7:0] o_d;
+	wire w_wr;
+	wire o_hz;
 	
 
 	// Instantiate the Unit Under Test (UUT)
 	top_module uut (
 		.i_clk(i_clk), 
-		.i_reset_n(i_reset_n), 
+		.i_reset_btn(i_reset_btn), 
 		.i_wr_btn(i_wr_btn), 
 		.i_val_inc_btn(i_val_inc_btn), 
 		.i_val_dec_btn(i_val_dec_btn), 
@@ -50,7 +52,9 @@ module top_module_tb;
 		.i_sel_dec_btn(i_sel_dec_btn),
 		.o_rs(o_rs),
 		.o_e(o_e),
-		.o_d(o_d)
+		.o_d(o_d),
+		.w_wr(w_wr),
+		.o_hz(o_hz)
 	);
 	
 	// Initialise 12 MHz clock (41.665*2 period)
@@ -59,7 +63,7 @@ module top_module_tb;
 	initial begin
 		// Initialize Inputs
 		i_clk = 0;
-		i_reset_n = 1;
+		i_reset_btn = 1;
 		i_wr_btn = 1;
 		i_val_inc_btn = 1;
 		i_val_dec_btn = 1;
@@ -70,14 +74,14 @@ module top_module_tb;
 		#100;
         
 		// Add stimulus here
-		i_reset_n = 1'b0;
+		i_reset_btn = 1'b0;
 		#60000000; // 60 ms for button press
-		i_reset_n = 1'b1;
+		i_reset_btn = 1'b1;
 		
 		#1500000000; //1.5 seconds
-		i_reset_n = 1'b0;
+		i_reset_btn = 1'b0;
 		#60000000;
-		i_reset_n = 1'b1;
+		i_reset_btn = 1'b1;
 		
 		#1500000000;  // 1.5 seconds
 		#1500000000;  // 1.5 seconds

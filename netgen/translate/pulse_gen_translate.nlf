@@ -1,0 +1,21 @@
+Release 14.7 - netgen P.20131013 (nt64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+
+Command Line: netgen -filter
+E:/Xilinx/projects/mimasV2-clock/iseconfig/filter.filter -intstyle ise
+-insert_glbl true -w -dir netgen/translate -ofmt verilog -sim pulse_gen.ngd
+pulse_gen_translate.v  
+
+Reading design 'pulse_gen.ngd' ...
+Flattening design ...
+Processing design ... 
+  Preping design's networks ...
+  Preping design's macros ...
+Writing Verilog netlist file
+'E:\Xilinx\projects\mimasV2-clock\netgen\translate\pulse_gen_translate.v' ...
+INFO:NetListWriters:633 - The generated Verilog netlist contains Xilinx SIMPRIM
+   simulation primitives and has to be used with SIMPRIM simulation library for
+   correct compilation and simulation. 
+Number of warnings: 0
+Number of info messages: 1
+Total memory usage is 4394912 kilobytes

@@ -32,29 +32,36 @@ module input_debounce(
 	 output o_sel_inc_pulse,
 	 output o_sel_dec_pulse
     );
+	 
+	 assign w_wr_btn_n = ~i_wr_btn;
+	 assign w_val_inc_btn_n = ~i_val_inc_btn;
+	 assign w_val_dec_btn_n = ~i_val_dec_btn;
+	 assign w_sel_inc_btn_n = ~i_sel_inc_btn;
+	 assign w_sel_dec_btn_n = ~i_sel_dec_btn;
+
 	
 	 button_debounce wr_btn	 	  (.i_clk(i_clk),
 											.i_ena(i_ena),
-											.i_btn(i_wr_btn),
+											.i_btn(w_wr_btn_n),
 											.o_pulse(o_wr_pulse));										 
 							
 	 button_debounce val_inc_btn (.i_clk(i_clk),
 										   .i_ena(i_ena),
-											.i_btn(i_val_inc_btn),
+											.i_btn(w_val_inc_btn_n),
 											.o_pulse(o_val_inc_pulse));							
 
 	 button_debounce val_dec_btn (.i_clk(i_clk),
 											.i_ena(i_ena),
-											.i_btn(i_val_dec_btn),
+											.i_btn(w_val_dec_btn_n),
 											.o_pulse(o_val_dec_pulse));
 										 
 	 button_debounce sel_inc_btn (.i_clk(i_clk),
 											.i_ena(i_ena),
-											.i_btn(i_sel_inc_btn),
+											.i_btn(w_sel_inc_btn_n),
 											.o_pulse(o_sel_inc_pulse));
 
 	 button_debounce sel_dec_btn (.i_clk(i_clk),
 											.i_ena(i_ena),
-											.i_btn(i_sel_dec_btn),
+											.i_btn(w_sel_dec_btn_n),
 											.o_pulse(o_sel_dec_pulse));
 endmodule

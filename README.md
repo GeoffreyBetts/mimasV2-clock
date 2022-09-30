@@ -14,6 +14,10 @@ User constraints file obtained from product website.
 - [x] Method of using input device to change the time
 - [x] Implement HDL on FPGA
 
+## Planned Updates
+- Add waveforms, videos, and picture of working projects
+- Clean up fsm
+
 ## Hardware
 - Mimas V2 Spartan 6 FPGA Development Board with DDR SDRAM
 - WH1604A-TMI-JT# (16x4 LCD)

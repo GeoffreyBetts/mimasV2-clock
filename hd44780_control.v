@@ -20,7 +20,7 @@
 // Update the LCD every fast pulse if wr is high
 // 
 //////////////////////////////////////////////////////////////////////////////////
-module hd44780_control(
+	module hd44780_control(
     input i_clk,
     input i_ena,
     input i_reset,
@@ -35,11 +35,12 @@ module hd44780_control(
 	 output reg [3:0] o_val
     );
 	 
-	 parameter [4:0] LFI = 5'd0, ST1 = 5'd1, ST2 = 5'd2, ST3 = 5'd3, ST4 = 5'd4, ST5 = 5'd5;
-	 parameter [4:0] SET = 5'd6, UPH = 5'd7, LWH = 5'd8, UPM = 5'd9, LWM = 5'd10, UPS = 5'd11, LWS = 5'd12, UPP = 5'd13, LWP = 5'd14;
-	 parameter [4:0] H2M = 5'd15, M2S = 5'd16, S2P = 5'd17, S1W = 5'd18, S2W = 5'd19, S3W = 5'd20, S4W = 5'd21;
-	 reg [4:0] state, next_state;
-	 reg [10:0] r_cnt;
+	 parameter [5:0] LFI = 6'd0, ST1 = 6'd1, ST2 = 6'd2, ST3 = 6'd3, ST4 = 6'd4, ST5 = 6'd5;
+	 parameter [5:0] SET = 6'd6, UPH = 6'd7, LWH = 6'd8, UPM = 6'd9, LWM = 6'd10, UPS = 6'd11, LWS = 6'd12, UPP = 6'd13, LWP = 6'd14;
+	 parameter [5:0] H2M = 6'd15, M2S = 6'd16, S2P = 6'd17, S1W = 6'd18, S2W = 6'd19, S3W = 6'd20, S4W = 6'd21;
+	 parameter [5:0] SAW = 6'd22, W01 = 6'd23, W02 = 6'd24, W03 = 6'd25, W04 = 6'd26, W05 = 6'd27, W06 = 6'd28, W07 = 6'd29, W08 = 6'd30, W09 = 6'd31, W10 = 6'd32, W11 = 6'd33, ASW = 6'd34;
+	 reg [5:0] state, next_state;
+	 reg [11:0] r_cnt;
 	 
 	 // Controls the next state
 	 always @(*) begin
@@ -47,26 +48,39 @@ module hd44780_control(
 		case(state)
 			LFI:	next_state = i_update_pulse? SET:LFI;
 			ST1:	next_state = S1W;
-			S1W:	next_state = (r_cnt==11'd32)? ST2:S1W;		// Wait 39 us (32+0)
+			S1W:	next_state = (r_cnt==12'd32)? ST2:S1W;		// Wait > 4.1 ms (3280(+1) clock cycles)
 			ST2:	next_state = S2W;
-			S2W:	next_state = (r_cnt==11'd62)? ST3:S2W;		// Wait 37 us (30+32)
+			S2W:	next_state = (r_cnt==12'd64)? ST3:S2W;		// Wait > 100 us (80(+1) + 3280(+1) clock cycles)
 			ST3:	next_state = S3W;
-			S3W:	next_state = (r_cnt==11'd92)? ST4:S3W;		// Wait 37 us (30+62)
+			S3W:	next_state = (r_cnt==12'd96)? ST4:S3W;		// DN
 			ST4:	next_state = S4W;
-			S4W:	next_state = (r_cnt==11'd1316)? ST5:S4W;	// Wait 1.53 ms (1224+92)
-			ST5:	next_state = SET;									// Straight into adding time
-			SET:	next_state = UPH;
-			UPH:	next_state = LWH;
-			LWH:	next_state = H2M;
-			H2M:	next_state = UPM;
-			UPM:	next_state = LWM;
-			LWM:	next_state = M2S;
-			M2S:	next_state = UPS;
-			UPS:	next_state = LWS;
-			LWS:	next_state = S2P;
-			S2P:	next_state = UPP;
-			UPP:	next_state = LWP;
-			LWP: 	next_state = LFI;
+			S4W:	next_state = (r_cnt==12'd1320)? ST5:S4W;	// DN
+			ST5:	next_state = ASW;									// Straight into adding time
+			ASW:	next_state = (r_cnt==12'd1352)? SET:ASW;
+			SET:	next_state = SAW;
+			SAW:	next_state = (r_cnt==12'd32)? UPH:SAW;
+			UPH:	next_state = W01;
+			W01:	next_state = (r_cnt==12'd67)? LWH:W01;
+			LWH:	next_state = W02;
+			W02:	next_state = (r_cnt==12'd102)? H2M:W02;
+			H2M:	next_state = W03;
+			W03:	next_state = (r_cnt==12'd137)? UPM:W03;
+			UPM:	next_state = W04;
+			W04:	next_state = (r_cnt==12'd172)? LWM:W04;
+			LWM:	next_state = W05;
+			W05:	next_state = (r_cnt==12'd207)? M2S:W05;
+			M2S:	next_state = W06;
+			W06:	next_state = (r_cnt==12'd242)? UPS:W06;
+			UPS:	next_state = W07;
+			W07:	next_state = (r_cnt==12'd277)? LWS:W07;
+			LWS:	next_state = W08;
+			W08:	next_state = (r_cnt==12'd312)? S2P:W08;
+			S2P:	next_state = W09;
+			W09:	next_state = (r_cnt==12'd347)? UPP:W09;
+			UPP:	next_state = W10;
+			W10:	next_state = (r_cnt==12'd382)? LWP:W10;
+			LWP: 	next_state = W11;
+			W11:	next_state = (r_cnt==12'd417)? LFI:W11;
 			default: next_state = LFI;
 		endcase
 	 end
@@ -74,10 +88,10 @@ module hd44780_control(
 	 always @(posedge i_clk) begin
 		if (i_reset) begin	// If reset, setup the lcd
 			state <= ST1;
-			r_cnt <= 11'd0;
+			r_cnt <= 12'd0;
 		end else if (i_ena) begin	// Otherwise, move state, and increment cnt
 			state <= next_state;
-			r_cnt <= r_cnt+1'b1;
+			r_cnt <= (state==SET)? 12'd0:r_cnt+1'b1;
 		end
 		
 		// Controls the outputs depending on the current state
@@ -149,6 +163,19 @@ module hd44780_control(
 		else if (state==S2W) o_e_trigger <= 1'b0;
 		else if (state==S3W) o_e_trigger <= 1'b0;
 		else if (state==S4W) o_e_trigger <= 1'b0;
+		else if (state==ASW) o_e_trigger <= 1'b0;
+		else if (state==SAW) o_e_trigger <= 1'b0;
+		else if (state==W01) o_e_trigger <= 1'b0;
+		else if (state==W02) o_e_trigger <= 1'b0;
+		else if (state==W03) o_e_trigger <= 1'b0;
+		else if (state==W04) o_e_trigger <= 1'b0;
+		else if (state==W05) o_e_trigger <= 1'b0;
+		else if (state==W06) o_e_trigger <= 1'b0;
+		else if (state==W07) o_e_trigger <= 1'b0;
+		else if (state==W08) o_e_trigger <= 1'b0;
+		else if (state==W09) o_e_trigger <= 1'b0;
+		else if (state==W10) o_e_trigger <= 1'b0;
+		else if (state==W11) o_e_trigger <= 1'b0;
 	 end
 
 endmodule

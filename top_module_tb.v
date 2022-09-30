@@ -37,13 +37,9 @@ module top_module_tb;
 	wire o_rs;
 	wire o_e;
 	wire [7:0] o_d;
+	wire w_wr;
+	wire o_hz;
 	
-	wire w_pm;
-	wire [7:0] w_hh;
-	wire [7:0] w_mm;
-	wire [7:0] w_ss;
-	
-	wire w_update_pulse;
 
 	// Instantiate the Unit Under Test (UUT)
 	top_module uut (
@@ -57,11 +53,8 @@ module top_module_tb;
 		.o_rs(o_rs),
 		.o_e(o_e),
 		.o_d(o_d),
-		.w_pm(w_pm), 
-		.w_hh(w_hh), 
-		.w_mm(w_mm), 
-		.w_ss(w_ss),
-		.w_update_pulse(w_update_pulse)
+		.w_wr(w_wr),
+		.o_hz(o_hz)
 	);
 	
 	// Initialise 12 MHz clock (41.665*2 period)
@@ -70,135 +63,135 @@ module top_module_tb;
 	initial begin
 		// Initialize Inputs
 		i_clk = 0;
-		i_reset_btn = 0;
-		i_wr_btn = 0;
-		i_val_inc_btn = 0;
-		i_val_dec_btn = 0;
-		i_sel_inc_btn = 0;
-		i_sel_dec_btn = 0;
+		i_reset_btn = 1;
+		i_wr_btn = 1;
+		i_val_inc_btn = 1;
+		i_val_dec_btn = 1;
+		i_sel_inc_btn = 1;
+		i_sel_dec_btn = 1;
     
 		// Wait 100 ns for global reset to finish		// 1000000 ns in 1 ms
 		#100;
         
 		// Add stimulus here
-		i_reset_btn = 1'b1;
-		#60000000; // 60 ms for button press
 		i_reset_btn = 1'b0;
+		#60000000; // 60 ms for button press
+		i_reset_btn = 1'b1;
 		
 		#1500000000; //1.5 seconds
-		i_reset_btn = 1'b1;
-		#60000000;
 		i_reset_btn = 1'b0;
+		#60000000;
+		i_reset_btn = 1'b1;
 		
 		#1500000000;  // 1.5 seconds
 		#1500000000;  // 1.5 seconds
 		
-		i_wr_btn = 1'b1;
-		#60000000;// 60 ms for button press
 		i_wr_btn = 1'b0;
+		#60000000;// 60 ms for button press
+		i_wr_btn = 1'b1;
 		
 		#1500000000;  // 1.5 seconds
 		
 		// Change to mm
 		
-		i_sel_inc_btn = 1'b1;
+		i_sel_inc_btn = 1'b0;
 		#60000000;
-		i_sel_inc_btn = 1'b0;	
+		i_sel_inc_btn = 1'b1;	
 
 		#200000000;  // 0.2 seconds
 		
-		i_val_inc_btn = 1'b1;
-		#60000000;
 		i_val_inc_btn = 1'b0;
+		#60000000;
+		i_val_inc_btn = 1'b1;
 		
 		#200000000;  // 0.2 seconds
 		
 		// Change to hh
-		i_sel_inc_btn = 1'b1;
+		i_sel_inc_btn = 1'b0;
 		#60000000; 
-		i_sel_inc_btn = 1'b0;	
+		i_sel_inc_btn = 1'b1;	
 
 		#200000000;  // 0.2 seconds
 		
-		i_val_dec_btn = 1'b1;
-		#60000000; 
 		i_val_dec_btn = 1'b0;
+		#60000000; 
+		i_val_dec_btn = 1'b1;
 		
 		// Change to pm
-		i_sel_inc_btn = 1'b1;
+		i_sel_inc_btn = 1'b0;
 		#60000000; 
-		i_sel_inc_btn = 1'b0;	
+		i_sel_inc_btn = 1'b1;	
 
 		#200000000;  // 0.2 seconds
 		
-		i_val_dec_btn = 1'b1;
-		#60000000; 
 		i_val_dec_btn = 1'b0;
+		#60000000; 
+		i_val_dec_btn = 1'b1;
 		
 		#200000000;  // 0.2 seconds
 		
-		i_val_inc_btn = 1'b1;
-		#60000000;
 		i_val_inc_btn = 1'b0;
+		#60000000;
+		i_val_inc_btn = 1'b1;
 		
 		#200000000;  // 0.2 seconds
 		
-		i_val_inc_btn = 1'b1;
-		#60000000;
 		i_val_inc_btn = 1'b0;
+		#60000000;
+		i_val_inc_btn = 1'b1;
 		
 		// Change to ss
-		i_sel_inc_btn = 1'b1;
-		#60000000; 
 		i_sel_inc_btn = 1'b0;
+		#60000000; 
+		i_sel_inc_btn = 1'b1;
 		
 		#200000000;  // 0.2 seconds
 		
-		i_val_dec_btn = 1'b1;
-		#60000000; 
 		i_val_dec_btn = 1'b0;
+		#60000000; 
+		i_val_dec_btn = 1'b1;
 		
 		#200000000;  // 0.2 seconds
 		
-		i_val_dec_btn = 1'b1;
-		#60000000; 
 		i_val_dec_btn = 1'b0;
+		#60000000; 
+		i_val_dec_btn = 1'b1;
 		
 		#200000000;  // 0.2 seconds
 		
-		i_val_dec_btn = 1'b1;
-		#60000000; 
 		i_val_dec_btn = 1'b0;
+		#60000000; 
+		i_val_dec_btn = 1'b1;
 		
 		#200000000;  // 0.2 seconds
 		
-		i_val_dec_btn = 1'b1;
-		#60000000; 
 		i_val_dec_btn = 1'b0;
+		#60000000; 
+		i_val_dec_btn = 1'b1;
 		
 		// Change to mm
 		
-		i_sel_inc_btn = 1'b1;
+		i_sel_inc_btn = 1'b0;
 		#60000000;
-		i_sel_inc_btn = 1'b0;	
+		i_sel_inc_btn = 1'b1;	
 
 		#200000000;  // 0.2 seconds
 		
-		i_val_dec_btn = 1'b1;
-		#60000000; 
 		i_val_dec_btn = 1'b0;
+		#60000000; 
+		i_val_dec_btn = 1'b1;
 		
 		#200000000;  // 0.2 seconds
 		
-		i_val_dec_btn = 1'b1;
-		#60000000; 
 		i_val_dec_btn = 1'b0;
+		#60000000; 
+		i_val_dec_btn = 1'b1;
 		
 		// Exit write mode
 		
-		i_wr_btn = 1'b1;
-		#60000000;// 60 ms for button press
 		i_wr_btn = 1'b0;
+		#60000000;// 60 ms for button press
+		i_wr_btn = 1'b1;
 	end
       
 endmodule

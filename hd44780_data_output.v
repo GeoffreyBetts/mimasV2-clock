@@ -45,8 +45,8 @@ module hd44780_data_output(
 			end else begin
 				if (i_sel[2] == 1'b0) o_q <= {1'b1, i_sel[0], 1'b0, i_sel[1], i_d}; // Write address data
 				if (i_sel[2] == 1'b1) begin
-					if (i_sel[1:0] == 2'b00) o_q <= 8'h34; // "001NF00"
-					if (i_sel[1:0] == 2'b01) o_q <= 8'h0C; // "00001DCB"
+					if (i_sel[1:0] == 2'b00) o_q <= 8'h38; // "001NF00"
+					if (i_sel[1:0] == 2'b01) o_q <= 8'h0c; // "00001DCB"
 					if (i_sel[1:0] == 2'b10) o_q <= 8'h01; // Display Clear
 					if (i_sel[1:0] == 2'b11) o_q <= 8'h06; // "000001(I/D)S"
 				end

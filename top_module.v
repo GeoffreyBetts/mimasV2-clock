@@ -87,7 +87,7 @@ module top_module(
 											 .o_wr_toggle(w_wr),
 											 .o_sel_val(w_sel));
 											 
-	 hd44780_driver lcd_driver 	(.i_clk(i_clk),
+	 ST7066U_driver lcd_driver 	(.i_clk(i_clk),
 											 .i_ena(w_lcd_pulse),
 											 .i_reset(w_reset_n),
 											 .i_clock_pulse(w_clock_pulse),

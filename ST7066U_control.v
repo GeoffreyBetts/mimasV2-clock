@@ -3,9 +3,9 @@
 // Company: 
 // Engineer: 
 // 
-// Create Date:    14:11:54 09/27/2022 
+// Create Date:    09:16:19 10/03/2022 
 // Design Name: 
-// Module Name:    hd44780_control 
+// Module Name:    ST7066U_control 
 // Project Name: 
 // Target Devices: 
 // Tool versions: 
@@ -16,11 +16,9 @@
 // Revision: 
 // Revision 0.01 - File Created
 // Additional Comments: 
-// Every 1 second, update the entire LCD (if wr is low)
-// Update the LCD every fast pulse if wr is high
-// 
+//
 //////////////////////////////////////////////////////////////////////////////////
-module hd44780_control(
+module ST7066U_control(
     input i_clk,
     input i_ena,
     input i_reset,
@@ -179,3 +177,4 @@ module hd44780_control(
 	 end
 
 endmodule
+

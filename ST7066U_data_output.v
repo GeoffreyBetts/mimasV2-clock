@@ -3,9 +3,9 @@
 // Company: 
 // Engineer: 
 // 
-// Create Date:    12:17:08 09/27/2022 
+// Create Date:    09:15:07 10/03/2022 
 // Design Name: 
-// Module Name:    hd44780_data_output 
+// Module Name:    ST7066U_data_output 
 // Project Name: 
 // Target Devices: 
 // Tool versions: 
@@ -18,7 +18,7 @@
 // Additional Comments: 
 //
 //////////////////////////////////////////////////////////////////////////////////
-module hd44780_data_output(
+module ST7066U_data_output(
     input i_clk,
     input i_ena,				// Enable signal
 	 input i_data,				// If high, output clock value, if low, output address location

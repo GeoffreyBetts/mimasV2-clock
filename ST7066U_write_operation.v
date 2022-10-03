@@ -3,9 +3,9 @@
 // Company: 
 // Engineer: 
 // 
-// Create Date:    12:39:53 09/27/2022 
+// Create Date:    09:15:45 10/03/2022 
 // Design Name: 
-// Module Name:    hd44780_write_operation 
+// Module Name:    ST7066U_write_operation 
 // Project Name: 
 // Target Devices: 
 // Tool versions: 
@@ -18,7 +18,7 @@
 // Additional Comments: 
 //
 //////////////////////////////////////////////////////////////////////////////////
-module hd44780_write_operation(
+module ST7066U_write_operation(
     input i_clk,
     input i_ena,
 	 input i_reset,
@@ -53,3 +53,4 @@ module hd44780_write_operation(
 
 
 endmodule
+

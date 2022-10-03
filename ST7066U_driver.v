@@ -3,9 +3,9 @@
 // Company: 
 // Engineer: 
 // 
-// Create Date:    11:42:03 09/28/2022 
+// Create Date:    09:17:59 10/03/2022 
 // Design Name: 
-// Module Name:    hd44780_driver 
+// Module Name:    ST7066U_driver 
 // Project Name: 
 // Target Devices: 
 // Tool versions: 
@@ -18,7 +18,7 @@
 // Additional Comments: 
 //
 //////////////////////////////////////////////////////////////////////////////////
-module hd44780_driver(
+module ST7066U_driver(
     input i_clk,
     input i_ena,
 	 input i_reset,
@@ -43,7 +43,7 @@ module hd44780_driver(
 	 // Generates a pulse which starts the fsm
 	 // Pulse is generated when the time gets updated
 	 // Either when wr is low & every second, or wr is high and an input is recieved
-	 hd44780_update_pulse lcd_pulse_gen   (.i_clk(i_clk),
+	 ST7066U_update_pulse lcd_pulse_gen   (.i_clk(i_clk),
 														.i_ena(i_ena),
 														.i_clock_pulse(i_clock_pulse),
 														.i_input_pulse(i_input_pulse),
@@ -53,7 +53,7 @@ module hd44780_driver(
 														.o_update_pulse(w_update_pulse));
 	 
 	 // Controls the outputs with a fsm
-	 hd44780_control control_fsm	  		  (.i_clk(i_clk),
+	 ST7066U_control control_fsm	  		  (.i_clk(i_clk),
 														.i_ena(i_ena),
 														.i_reset(i_reset),
 														.i_update_pulse(w_update_pulse),
@@ -68,7 +68,7 @@ module hd44780_driver(
 	 
 	 // Controls rs and e output to lcd
 	 // Controlled by fsm inputs
-	 hd44780_write_operation rs_e_output  (.i_clk(i_clk),
+	 ST7066U_write_operation rs_e_output  (.i_clk(i_clk),
 														.i_ena(i_ena),
 														.i_reset(i_reset),
 														.i_data(w_lcd_data),
@@ -78,7 +78,7 @@ module hd44780_driver(
 	
 	 // Controls the databus output to lcd
 	 // Controlled by fsm inputs
-	 hd44780_data_output d_output			  (.i_clk(i_clk),
+	 ST7066U_data_output d_output			  (.i_clk(i_clk),
 														.i_ena(i_ena),
 														.i_data(w_lcd_data),
 														.i_sel(w_lcd_sel),

@@ -3,9 +3,9 @@
 // Company: 
 // Engineer: 
 // 
-// Create Date:    09:29:56 09/28/2022 
+// Create Date:    09:16:54 10/03/2022 
 // Design Name: 
-// Module Name:    hd44780_update_pulse 
+// Module Name:    ST7066U_update_pulse 
 // Project Name: 
 // Target Devices: 
 // Tool versions: 
@@ -18,7 +18,7 @@
 // Additional Comments: 
 //
 //////////////////////////////////////////////////////////////////////////////////
-module hd44780_update_pulse(
+module ST7066U_update_pulse(
     input i_clk,
     input i_ena,
     input i_clock_pulse,
